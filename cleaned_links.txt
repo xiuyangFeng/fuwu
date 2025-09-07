@@ -1,0 +1,1556 @@
+============================================================
+医工交叉园地链接提取结果（清洗版）
+============================================================
+
+总共提取到 517 个唯一链接
+
+1. https://s.caixuan.cc/LxKxpuRl
+   来源: Goubergrits等人基于CT并使用统计形状建模（SSM）结合CFD进行左心室血流动力学分析
+
+2. https://s.caixuan.cc/LUPrjB7U
+   来源: Harry Perkins医学研究所和西澳大学的Parker等人结合形态学和计算流体力学对髂总动脉瘤提出了一种新的分类方法
+
+3. https://s.caixuan.cc/LF1iHM8m
+   来源: Harry Perkins医学研究所的Doyle等人发现基线时的低剪切力可预测腹主动脉瘤的扩张和相关事件
+
+4. https://s.caixuan.cc/LbeHKBBq
+   来源: K. N.Toosi理工大学Mohammad等人研究了β受体阻滞剂对B型主动脉夹层患者特定血流模拟中血流动力学参数的影响
+
+5. https://s.caixuan.cc/LJ4qNsBU
+   来源: Linköping大学Magnus Andersson等人在主动脉缩窄介入治疗前后研究了狭窄湍流中的多向WSS扰动
+
+6. https://s.caixuan.cc/L5xhM0x7
+   来源: NVIDIA Corporation的Fang等人提出一种混合物理信息神经网络基于卷积神经网络和有限体积方法的思想用于偏微分方程
+
+7. https://s.caixuan.cc/LVo4NTqU
+   来源: Rijnstate医院的Johannes比较了带有血管内动脉瘤封堵的烟囱式血管内动脉瘤修复配
+
+8. https://s.caixuan.cc/LsZRKSWd
+   来源: RISC软件有限公司的hilipp Moser等人第一次全面比较各种国家的最先进的网络和评估其性能的计算成本和精度相对于数值参考
+
+9. https://s.caixuan.cc/LVyhBnWL
+   来源: Strathclyde大学Scott等人基于4D Flow-MRI对主动脉对CFD耦合模型中患者特定边界条件进行校准
+
+10. https://s.caixuan.cc/Loq3k1pr
+   来源: 上海交通大学医学院朱海琴提出用于皮肤病变分割的高阶空间交互UNet模型MHorUNet
+
+11. https://s.caixuan.cc/LDB7JTlp
+   来源: 上海交通大学杨心蕊等人研究旨在评估血管内主动脉修复术后不同解剖形态相关的血流动力学指标旨在为临床治疗方案的选择提供参考
+
+12. https://s.caixuan.cc/LAlpq0IT
+   来源: 上海交通大学的Hang Xu等人使用深度强化学习研究雷诺数为100的二维流动中的主动流动控制
+
+13. https://s.caixuan.cc/Lr6U9P0N
+   来源: 上海交通大学的Hang Xu等人利用深度强化学习提出了一种针对椭圆圆柱绕流的主动流动控制方法
+
+14. https://s.caixuan.cc/LgCEptl3
+   来源: 上海交通大学的刘浩等人提出了一种基于机翼运动学和深度强化学习的新型控制器以稳定大黄蜂在大扰动下的悬停
+
+15. https://s.caixuan.cc/L1Fu63Us
+   来源: 上海交通大学的邱殿凯教授团队建立了ePTFE增强PFSA膜的本构模型与断裂模型并在数值上实现了微纤维增强材料的裂纹扩展
+
+16. https://s.caixuan.cc/L15tRBBj
+   来源: 上海交通大学的陈晓军研究员团队提出基于先验对抗生成网络的眼眶爆裂性骨折自动重建智能手术规划算法
+
+17. https://s.caixuan.cc/LgS0vwsh
+   来源: 上海交通大学的马少鹏等人提出一种基于物理信息神经网络（PINN）的DIC求解方法PINN-DIC
+
+18. https://s.caixuan.cc/L7YM6j3B
+   来源: 上海大学力学与工程科学学院应时辉教授团队提出用于二值小样本医学图像分割的可学习Mumford-Shah网络
+
+19. https://s.caixuan.cc/LWwvKTq3
+   来源: 上海大学的应时辉教授提出基于空间对齐的MRI多模态重构深度展开网络
+
+20. https://s.caixuan.cc/Lvu1k8Yu
+   来源: 上海大学的李瑛等人提出了一种基于时域分解的可转移预训练神经网络框架来求解偏微分方程
+
+21. https://s.caixuan.cc/LWWMatNE
+   来源: 上海大学的王敏等人提出一种基于深度强化学习的四足机器人跳跃距离控制方法
+
+22. https://s.caixuan.cc/Lat6jRhu
+   来源: 上海科技大学Syamul Bashar等人对颈动脉分叉处进行非牛顿血流的CFD分析
+
+23. https://s.caixuan.cc/L5r5ZQxN
+   来源: 上海科技大学的Zirong Zhai等人开发了一个基于深度强化学习的镍基合金定向能量沉积的智能工艺参数优化方法
+
+24. https://s.caixuan.cc/LMjk8iQa
+   来源: 东京农业技术大学的Wakana Kubo等人提出了一种基于深度强化学习来优化专用于热辐射吸收的超材料吸收器几何形状的方法
+
+25. https://s.caixuan.cc/LlWQ2QJ8
+   来源: 东京医科齿科大学的Kenji YAMADA等人对三叉神经痛患者神经血管压迫部位责任动脉进行计算流体力学分析
+
+26. https://s.caixuan.cc/LEz15B9E
+   来源: 东京大学医学院的Takuya Hatakeyama等人通过三维重建和临床数据分析相结合的方法探究腹主动脉瘤破裂的危险因素
+
+27. https://s.caixuan.cc/LWqrjh0P
+   来源: 东京大学的Kazuo Yonekura等人提出了一种基于深度强化学习（DRL）的优化方法，以最大化马赫数分布的平滑度
+
+28. https://s.caixuan.cc/LD9oq1eP
+   来源: 东北大学机械工程与自动化学院颜云辉教授团队提出利用标记数据知识的半监督协作校正学习的3D医学图像分割算法
+
+29. https://s.caixuan.cc/LiMw7ufE
+   来源: 东北大学的Juner Zhu等人提出物理信息算子神经网络框架相场DeepONe可以预测由自由能泛函梯度流控制的系统的动态响应
+
+30. https://s.caixuan.cc/L1dFD2IG
+   来源: 东北大学的Safa Jamali等人提出了非牛顿物理信息神经网络（nn-PINNs）解决复杂流体流动建模的耦合偏微分方程系统
+
+31. https://s.caixuan.cc/LSnsKICy
+   来源: 东南大学方润新等人探究房颤患者特异性肺静脉血流特征及其对左心耳血栓形成的影响
+
+32. https://s.caixuan.cc/LxkHS3bk
+   来源: 东南大学生物科学与医学工程学院周光泉教授团队提出用于息肉分割的动态光谱驱动的分层学习网络
+
+33. https://s.caixuan.cc/LE1UBguu
+   来源: 东南大学的吴鹏教授团队研究了血液流变学以及患者特异性二尖瓣(MV)边界条件对LAA血流动力学和血栓形成电位的影响
+
+34. https://s.caixuan.cc/L3xePwQE
+   来源: 中南大学湘雅医院的王伟教授等人基于形态学和生物力学指数预测腹主动脉瘤的破裂位置和破裂风险
+
+35. https://s.caixuan.cc/LZlxiwHB
+   来源: 中南大学计算机学院郭菲教授提出基于局部多模态视觉特征聚合的医学图像分割模型TranSiam
+
+36. https://s.caixuan.cc/LV6H3wWl
+   来源: 中国人民解放军总医院郭伟研究团队基于数值模拟分析了 MIBSG 的血流动力学特性
+
+37. https://s.caixuan.cc/LCyDnuaR
+   来源: 中国医学科学院阜外医院的舒畅教授团队评估流出道形态与腹主动脉瘤破裂风险之间的关系，寻找腹主动脉瘤破裂危险因素
+
+38. https://s.caixuan.cc/LvJtFSaC
+   来源: 中国医学科学院阜外医院赵世华主任研究发现血管结构应力介导双尖瓣主动脉病变主动脉中膜变性
+
+39. https://s.caixuan.cc/L96exn8v
+   来源: 中国地质大学的Su等人提出了一种耦合计算流体动力学和深度强化学习的新型闭锁控制模型以提高点吸收式波能转换器的波能捕获性能
+
+40. https://s.caixuan.cc/L3l89JJj
+   来源: 中国地质大学的梁洪建等人开发了一个内部求解器来与DRL和CFD相结合，以解决WEC与流体环境之间的相互作用
+
+41. https://s.caixuan.cc/LipRpKYI
+   来源: 中国海洋大学王胜科副教授团队提出一种用于复杂目标有效分割的边缘导向SAM算法
+
+42. https://s.caixuan.cc/LpyKOG4s
+   来源: 中国石油大学的宋宇等人使用深度强化学习来综合优化喷射参数
+
+43. https://s.caixuan.cc/LtN2uNu7
+   来源: 中国科学技术大学的余昊等人提出了一种新型的DeepONet嵌入式物理信息神经网络（DE-PINN）
+
+44. https://s.caixuan.cc/L8Vc5Mwx
+   来源: 中国科学技术大学的黄海波等人应用单步深度强化学习算法来优化下游分离器板的空间位置和长度，以抑制圆柱体后面的涡流脱落
+
+45. https://s.caixuan.cc/LRiDTlnI
+   来源: 中国科学院大学的李守定教授团队开发了一种水-力-损伤全耦合数值方法用于模拟多孔弹性介质中复杂的准脆性水力压裂过程
+
+46. https://s.caixuan.cc/L4CKrFSH
+   来源: 中国科学院宁波材料技术与工程研究所副所长赵一天团队提出使用视网膜OCTA图像的早期痴呆检测模型Beyond the eye
+
+47. https://s.caixuan.cc/Lw55K4Gv
+   来源: 中国科学院深圳先进技术研究院梁晓坤提出用于医学图像分割的基于统计形变模型数据增强方法
+
+48. https://s.caixuan.cc/LAR13KjT
+   来源: 中国科学院深圳先进技术研究院的熊璟等人基于计算流体力学探究局部血流动力学参数与腹主动脉瘤实际破裂位置之间的关系
+
+49. https://s.caixuan.cc/LWtbvokd
+   来源: 中国科学院深圳先进技术研究院的熊璟等人对腹主动脉出血部位周围流动特性进行了血流动力学分析
+
+50. https://s.caixuan.cc/Lb0AxGeX
+   来源: 中国科学院的熊璟等人分析在胸主动脉腔内修复术中左锁骨下动脉血管内重建后五种不同配置的左锁骨下动脉支架移植物之间的血流动力学差异
+
+51. https://s.caixuan.cc/LX99FQDI
+   来源: 中国香港中文大学Leung等人采用计算流体力学研究颅内动脉粥样硬化性疾病的血流动力学特征与卒中复发风险的相关性
+
+52. https://s.caixuan.cc/LqUslDOw
+   来源: 中山大学孙逸仙纪念医院的杨淞然等人构建一个可以准确估计主动脉TAWSS的深度学习平台
+
+53. https://s.caixuan.cc/LAcLI1RB
+   来源: 中山大学胡战超等提出了一个集成CFD模拟、人工神经网络代理模型和深度强化学习的框架以优化超临界CO2热声发动机TAC中的通道形状
+
+54. https://s.caixuan.cc/LBLCNoc8
+   来源: 中山大学附属第一医院的常光其教授等人结合计算流体力学探究了逆行升主动脉夹层血管内治疗的长期疗效
+
+55. https://s.caixuan.cc/L9DNl2li
+   来源: 中科院力学研究所的孙振旭等人提出了一种基于物理信息神经网络的实用方法，将已知数据与物理原理相结合，用于重建不完整数据的流场
+
+56. https://s.caixuan.cc/LWVSDXVQ
+   来源: 丰田中央研究所的Toshiki Sasayama等人考虑纤维间相互作用在简单剪切流中的断裂
+
+57. https://s.caixuan.cc/LePEzwDE
+   来源: 丹麦技术大学电力与能源中心的Nellikkath等人利用物理信息网络将交流潮流方程纳入神经网络训练
+
+58. https://s.caixuan.cc/L2rMGFEB
+   来源: 之江实验室健康医疗大数据研究中心副主任朱闻韬教授团队提出基于域自适应变换的多相肝肿瘤分割网络DA-Tran
+
+59. https://s.caixuan.cc/L2Q8YzeI
+   来源: 亚琛工业大学Michael Neidlin等人采用数值多尺度模型研究了左、右锁骨下动脉(SA)移植治疗心脏瓣膜病的可行性
+
+60. https://s.caixuan.cc/LsVJemQs
+   来源: 亚琛工业大学的Daniel Truhn等人将扩散概率模型应用于合成高质量的磁共振成像（MRI）和计算机断层扫描（CT）的医疗数据
+
+61. https://s.caixuan.cc/LXMgT0jB
+   来源: 京中医药大学蒋旭东等人对接受医生改良覆膜支架（PMEG）的复杂性主动脉夹层患者进行血流动力学模拟
+
+62. https://s.caixuan.cc/LlExuYrp
+   来源: 京都府立医科大学Tomohito Kanzaki等人对乳内动脉-左前降支动脉闭塞进行计算流体力学研究
+
+63. https://s.caixuan.cc/LizkS4Yc
+   来源: 代尔夫特理工大学的Bernat Font团队提出了基于深度强化学习（DRL）的湍流分离泡主动控制方法
+
+64. https://s.caixuan.cc/LM9wjFuV
+   来源: 以色列阿里尔大学的Moshe等人的研究利用计算流体动力学探究了烟囱支架移植物突出长度对支架移植物血流动力学的影响
+
+65. https://s.caixuan.cc/LVp9K7RT
+   来源: 伊利诺伊大学厄巴纳-香槟分校的Junyan提出了一种新的深度算子网络（DeepONet）变体Geom-DeepONet
+
+66. https://s.caixuan.cc/LdgtCUOl
+   来源: 伊巴丹大学Ayodele等人研究了颈动脉动脉粥样硬化斑块沉积物的生物力学影响
+
+67. https://s.caixuan.cc/LzDNiKcr
+   来源: 伊斯坦布尔科技大学的Maria Gracka等人使用耗竭相互作用理论计算了两相血流模拟
+
+68. https://s.caixuan.cc/Ln6XqEPp
+   来源: 伊朗伊斯兰阿扎德大学的Mehdi Jahangiri等人研究了六种非牛顿粘度模型对狭窄动脉的血流动力学参数的影响
+
+69. https://s.caixuan.cc/LInaRL8u
+   来源: 伊朗巴布尔努什瓦尼理工大学Pahlavanian等人利用计算流体力学(CFD)评估移植物几何形状在静脉吻合术中对血流动力学的影响
+
+70. https://s.caixuan.cc/LAOpXdsb
+   来源: 伍珀塔尔大学的F. Lorenzen等人探究最近提出的物理信息网络（PINN）在求解含参数边界条件流体流动问题中的潜能
+
+71. https://s.caixuan.cc/LrdHNlH5
+   来源: 伦敦国王学院的Konstantinos G. Lyras等人提出了一种新的多相流计算流体动力学求解器
+
+72. https://s.caixuan.cc/LAx0rZqX
+   来源: 伦敦大学Francesca等人利用计算流体力学(CFD)模拟血流与代表NIH生长机制的生化模型相结合的计算模型
+
+73. https://s.caixuan.cc/LnMeZ5al
+   来源: 伦敦大学学院的Endrit Pajaziti通过自动和快速回归模型（ML）重现传统主动脉CFD的结果
+
+74. https://s.caixuan.cc/LV2Zp2GF
+   来源: 伦敦大学的Balabani等人利用PIV对颅外周围动静脉畸形的患者特异性血流动力学进行体外表征
+
+75. https://s.caixuan.cc/LPAUdADO
+   来源: 伦敦大学的Helge A. Wurdemann等人提出了一种基于患者特异性数据重建的新型主动脉模型
+
+76. https://s.caixuan.cc/LpKealCi
+   来源: 伦敦帝国理工学院Peiffer等人发现主动脉锥度对兔血流模式和壁切应力的影响
+
+77. https://s.caixuan.cc/LHIgTcFJ
+   来源: 伦敦帝国理工学院的Daniele Dini等人通过数值表征和实验验证获得了大脑白质的各向异性渗透性张量
+
+78. https://s.caixuan.cc/LuhNeDCt
+   来源: 伦敦帝国理工学院的XiaoYun Xu教授团队​研究了冠状动脉流出和非牛顿流体特性对主动脉瓣动力学和周围血流动力学的影响
+
+79. https://s.caixuan.cc/Lsphtbbf
+   来源: 伦敦帝国理工学院的XiaoYun Xu教授团队使用FSI与血栓形成综合模型研究了B型主动脉夹层血管壁运动与血栓生长的相互作用
+
+80. https://s.caixuan.cc/L5jrNbP4
+   来源: 伦敦帝国理工学院的XiaoYun Xu教授团队建立了模拟整个心动周期内健康AV运动的受试者特定的FSI工作流程
+
+81. https://s.caixuan.cc/LjpXFdGn
+   来源: 伦敦帝国理工学院的XiaoYun Xu教授团队开发了一种新的简化的血栓形成模型预测在生理血流条件下TBAD中的FL血栓形成
+
+82. https://s.caixuan.cc/LKTWyeaN
+   来源: 伦敦帝国理工学院的XiaoYun Xu教授团队提出了一种能够预测生理条件下血栓的形成、生长及其对血流影响的新的计算模型
+
+83. https://s.caixuan.cc/LZrr3vUl
+   来源: 伦敦帝国理工学院的XiaoYun Xu教授团队研究了生物瓣膜与AV-Neo术后主动脉内的湍流产生及其对WSS的影响
+
+84. https://s.caixuan.cc/L7ywwlyQ
+   来源: 伦敦帝国理工学院的XiaoYun Xu等人提出了主动脉夹层理想模型中血栓形成的数学模型
+
+85. https://s.caixuan.cc/Ls0Ep9Om
+   来源: 伯明翰大学的David G. Owen等人结合了狭窄猪分叉内血小板的剪切应力暴露史模型，比较了不同流变学方法对血流动力学的影响
+
+86. https://s.caixuan.cc/L8kAB2hO
+   来源: 佐治亚理工学院的Ajit P. Yoganathan等人识别和评估了导致THV血栓形成的危险因素
+
+87. https://s.caixuan.cc/LjtYbDsw
+   来源: 佐治亚理工学院的Alexander Alexeev等人利用介观尺度计算模型探究了血小板、纤维蛋白聚合物和红细胞之间的动态相互作用
+
+88. https://s.caixuan.cc/LAcLUjpt
+   来源: 佛罗里达大学Berceli等人应用烟囱技术研究血管内动脉瘤修复术后内脏烟囱支架-移植物闭塞相关的解剖学和血流动力学变化
+
+89. https://s.caixuan.cc/LUxIEJim
+   来源: 佛罗里达大学的Scott A. Berceli通过计算流体动力学分析，探讨了颈总动脉烟囱覆膜支架闭塞的可能原因
+
+90. https://s.caixuan.cc/LnpLEGgN
+   来源: 俄亥俄州立大学的Lakshmi Prasad Dasi等人在ViV手术前后定量评估了主动脉窦血流动力学的变化
+
+91. https://s.caixuan.cc/L7I4Ehi9
+   来源: 俄克拉荷马大学的Brittany E. Bannish等人建立了纤溶蛋白介导的单个纤维蛋白纤维溶解的数学模型
+
+92. https://s.caixuan.cc/L5meRw9c
+   来源: 俄勒冈健康与科学大学的Azarbal等人研究发现主动脉流出道闭塞是预测AAA破裂风险的一个指标
+
+93. https://s.caixuan.cc/LEiKT2a8
+   来源: 俄罗斯的彼尔姆国家研究型理工大学的Aleksandr等人使用双向流固耦合的多层动脉支架性能的计算机模型模拟边界条件和血管长度影响
+
+94. https://s.caixuan.cc/LJQwlVBE
+   来源: 克拉古耶瓦茨大学Danko等人提出ABI指数用于无创评估股腘动脉搭桥手术结果
+
+95. https://s.caixuan.cc/Lt5dycK3
+   来源: 凯斯西储大学的Anirban Sen Gupta等人开发了纳米颗粒与凝块中单个实体和组合实体结合的计算模型
+
+96. https://s.caixuan.cc/LcgLWa92
+   来源: 利兹大学的Chen等人提出了一种基于PINN的注意力损失物理信息神经网络（LA-PINN）
+
+97. https://s.caixuan.cc/Ld4rM0R9
+   来源: 利兹大学的Robert A.S. Ari¨ens等人定量分析血块密度、纤维蛋白纤维半径和原纤维堆积情况
+
+98. https://s.caixuan.cc/LTfNqorj
+   来源: 利兹大学的Robert A.S. Ariëns等人通过实验模型深入研究了超声在溶栓过程的作用和机制
+
+99. https://s.caixuan.cc/L6xfhaOs
+   来源: 加利福尼亚大学河滨分校的Alber等人开发了一个三维多尺度计算模型，量化了由血小板与纤维蛋白相互牵引作用所驱动的血凝块收缩动力学
+
+100. https://s.caixuan.cc/LWvWd4St
+   来源: 加州大学Mark Alber等人使用高分辨率共焦显微镜和三维计算模型测试了纤维蛋白凝块对外部拉伸载荷的机械响应的结构机制
+
+101. https://s.caixuan.cc/LClqOJfE
+   来源: 加州大学欧文分校的Barschkis在本研究中探讨了基于软损失和基于精确距离函数的BC拼接方法在PINN中应用时的不同之处
+
+102. https://s.caixuan.cc/LbN9Oy5Q
+   来源: 加州大学生物实验室的Celi等人的研究目的是基于CFD评估对两种类型的PAU治疗方法的效果进行比较分析
+
+103. https://s.caixuan.cc/L0CpwrwF
+   来源: 加州大学的R. Al-Hakim等人研究的目的是表征外周动脉覆膜支架的血流动力学，以指导智能支架重新设计
+
+104. https://s.caixuan.cc/L84sUgBt
+   来源: 加州大学的Zakharov等人结合二维弹性网络模型、剪切流变实验和显微成像，系统研究了纤维交联和血小板收缩对血凝块力学行为的影响
+
+105. https://s.caixuan.cc/LUwRzPTR
+   来源: 加拿大萨斯喀彻温大学的R.D. Luciano等人评估模拟设置对结果的影响并研究患有动脉瘤的脑动脉中湍流的发生情况
+
+106. https://s.caixuan.cc/L0nQ2O0V
+   来源: 北亚利桑那大学的Amirhossein Arzani使用PINN来量化病变动脉近壁血流的WSS数据
+
+107. https://s.caixuan.cc/LTjPNOjQ
+   来源: 北亚利桑那大学的Amirhossein Arzani开发了一个计算框架来研究冠状动脉中WSS与斑块生长之间的耦合
+
+108. https://s.caixuan.cc/LVaOMxuD
+   来源: 北亚利桑那大学的Amirhossein Arzani提出了一种新的混合牛顿和非牛顿流变模型
+
+109. https://s.caixuan.cc/LI4Spgl1
+   来源: 北亚利桑那大学的Amirhossein Arzani等人开发了一套使用有限元方法解决高Péclet数近壁质量输运问题的准则
+
+110. https://s.caixuan.cc/LToZ0cbO
+   来源: 北亚利桑那大学的Shawn C. Shadden考虑了由复杂的WSS模式引起的腹主动脉瘤搏动血流中的传质过程
+
+111. https://s.caixuan.cc/LZqQ95Dc
+   来源: 北京大学Yunlong Huo教授团队对15例患者进行左乳内动脉旁路移植术的血流动力学分析
+
+112. https://s.caixuan.cc/Lua3SwMM
+   来源: 北京大学人民医院的张韬教授等人建立了用于预测内膜撕裂可能发生及其位置的血流动力学标准和指标
+
+113. https://s.caixuan.cc/LniB0EOV
+   来源: 北京大学人民医院的李伟等人的研究旨在评价与复杂腹主动脉瘤腔内修复术后分支覆膜支架支架内血栓形成相关的血流动力学指标
+
+114. https://s.caixuan.cc/LQ543Lmm
+   来源: 北京大学信息工程学院陈语谦教授提出用于腹腔镜手术图像分割的轻量级动态卷积网络LDCNet
+
+115. https://s.caixuan.cc/LfwllEVX
+   来源: 北京工业大学信息学部张津丽提出用于COVID-19病灶分割的级联三维空洞卷积神经网络CD-Net
+
+116. https://s.caixuan.cc/LyM5E4mQ
+   来源: 北京工业大学刘有军教授对不同类型冠状动脉搭桥术进行血流动力学评估
+
+117. https://s.caixuan.cc/LHBlJc6D
+   来源: 北京工业大学刘有军教授评估中度狭窄左前降支内胸动脉移植后的血流动力学特征
+
+118. https://s.caixuan.cc/LupwSxte
+   来源: 北京工业大学环境与生命学部生物医学工程系刘有军教授提出基于ACMA-Net和无迹卡尔曼滤波的冠状动脉分割算法
+
+119. https://s.caixuan.cc/LuY0AjhK
+   来源: 北京工业大学的冯继宏团队提出光学相干断层扫描视网膜疾病分类的轻量级模型
+
+120. https://s.caixuan.cc/LmA1eJGy
+   来源: 北京理工大学杨健教授团队提出基于增量能量的循环Transformer-KAN用于软组织时间序列变形模拟
+
+121. https://s.caixuan.cc/LhkJu5GL
+   来源: 北京理工大学的陈端端教授团队介绍了一种可以准确快速地预测主动脉夹层患者在不同术后阶段血栓形成的多相多孔介质方法
+
+122. https://s.caixuan.cc/LscXmOVP
+   来源: 北京理工大学的陈端端教授团队提出基于深度学习的快速虚拟支架植入模型以辅助主动脉夹层的腔内介入治疗的术前规划
+
+123. https://s.caixuan.cc/LUrxLLDK
+   来源: 北京理工大学的陈端端教授等人在EMBSG植入前后，对患者进行了计算流体动力学和三维结构分析
+
+124. https://s.caixuan.cc/LpENn3ys
+   来源: 北京理工大学的陈端端教授等人的研究旨在探讨基底动脉模型中不同尺寸和位置的开窗对血流动力学的影响
+
+125. https://s.caixuan.cc/LFN7WWg5
+   来源: 北京理工大学的陈端端教授等人通过CFD验证孤立性肠系膜上动脉夹层分类系统
+
+126. https://s.caixuan.cc/Lk4yFQ6a
+   来源: 北京理工大学陈端端教授团队提出预测血管内修复术后 B 型主动脉夹层假腔生长的血流动力学参数
+
+127. https://s.caixuan.cc/LYnorbEP
+   来源: 北京理工大学陈端端教授探究TEVAR后封闭主动脉夹层再入撕裂口的必要性
+
+128. https://s.caixuan.cc/LiuN18sZ
+   来源: 北京科技大学张雪岚副教授对主动脉狭窄后扩张的形成机制及发生可能性进行CFD分析
+
+129. https://s.caixuan.cc/L34XhgCA
+   来源: 北京科技大学张雪岚副教授等人结合计算、实验和统计方法探究中大型腹主动脉瘤破裂的相关因素和预测模型
+
+130. https://s.caixuan.cc/LW5hu8ns
+   来源: 北京科技大学的付冬梅教授等团队提出了动态网格重要性抽样（DMIS）来解决PINN的训练的效率低和收敛不稳定的问题
+
+131. https://s.caixuan.cc/LyowIwof
+   来源: 北京航空航天大学刘雪峰副教授提出用于乳腺癌诊断的半监督混合正则化策略DK-HRS
+
+132. https://s.caixuan.cc/L5lglDKT
+   来源: 北京航空航天大学的唐雨萌等人提出了一种基于隐式深度神经网络的非定常流场预测方法
+
+133. https://s.caixuan.cc/LZRfDArc
+   来源: 北京航空航天大学的张伟昊等人提出了一种基于多智能体强化学习的动态多目标优化算法
+
+134. https://s.caixuan.cc/LdcbFz6P
+   来源: 北京航空航天大学的李建欣团队引入了PDE-diffusion模型求解偏微分方程
+
+135. https://s.caixuan.cc/L68djTz7
+   来源: 北京航空航天大学的王铭堃团队研究了血栓中纤维蛋白网络的断裂和疲劳行为
+
+136. https://s.caixuan.cc/LGowEmLU
+   来源: 北京航空航天大学的陈中原等人提出了一种基于深度强化学习的敏捷导弹全方位攻击制导律
+
+137. https://s.caixuan.cc/LZJXO6x7
+   来源: 北京邮电大学的刘春教授等人提出了一种基于PointNet的自适应精化方法，避免了在构造离散域时预先计算的问题
+
+138. https://s.caixuan.cc/Lkl5uAiQ
+   来源: 北卡罗来纳大学教堂山分校的Mingxia Liu团队提出基于扩散增强的自监督图对比学习在功能性MRI分析和脑障碍检测中的应用
+
+139. https://s.caixuan.cc/LtxfZMTp
+   来源: 匹兹堡大学医学中心的Liang博士等人发现转运过程中出现高血压与腹主动脉瘤破裂不稳定患者的不良预后相关
+
+140. https://s.caixuan.cc/LrTZF70V
+   来源: 华东交通大学张全超教授等人的研究采用血流动力学计算模拟方法研究了4种不同的LSA覆膜支架植入方案在胸主动脉中产生的血流模式
+
+141. https://s.caixuan.cc/L8QTv7no
+   来源: 华东理工大学朱宏擎教授团队提出用于磁共振图像重建的因果惯性近端Mamba网络
+
+142. https://s.caixuan.cc/LGT1rrP3
+   来源: 华中科技大学电子信息与通信学院闫增强教授提出不确定性导向CNN-Transformer混合医学图像分割网络UCTNet
+
+143. https://s.caixuan.cc/L34Xl0wX
+   来源: 华中科技大学的张云等人提出了一种新的强化学习框架和自预测人工神经网络模型相结合的在线决策系统
+
+144. https://s.caixuan.cc/LK6XIujY
+   来源: 华中科技大学的贺松平等人提出一种基于深度强化学习方法的铣削工艺参数优化方法
+
+145. https://s.caixuan.cc/LVmnBftL
+   来源: 华中科技大学计算机科学与技术学院宋恩民教授提出结合外部潜在注意机制的医学图像分割模型
+
+146. https://s.caixuan.cc/LeA14UG5
+   来源: 华北电力大学的郭张鹏等人采用强化学习算法对影响翼型翅片热工水力学性能的关键几何参数进行了优化
+
+147. https://s.caixuan.cc/LQtA7e3S
+   来源: 卑尔根血管研究所的Wilderman等人的研究旨在评估覆膜支架在修复大口径血管通路损伤中的安全性和有效性
+
+148. https://s.caixuan.cc/LqWFQbqC
+   来源: 南京医科大学的殷信道主任等人发现血流动力学与大脑中动脉狭窄患者的血管壁重构相关
+
+149. https://s.caixuan.cc/LaK6yCFE
+   来源: 南京医科大学金陵医院的张鑫主任等人确定了与多发性颅内动脉瘤破裂相关的形态学和血流动力学特征
+
+150. https://s.caixuan.cc/LpuSZ3aH
+   来源: 南京大学医学院附属金陵医院的刘新峰教授团队采用定量DSA获取血流动力学参数从而预测ICAS经PTAS治疗后卒中复发的风险
+
+151. https://s.caixuan.cc/LKTfoSBa
+   来源: 南京大学杨孝平教授团队提出融合胰腺和胰腺癌可靠临床思维和经验的分割算法
+
+152. https://s.caixuan.cc/LNX4Bfh0
+   来源: 南京理工大学的吴威涛等人提出了一种将在二维环境中学习的DRL控制策略转移到新的三维环境中的方法
+
+153. https://s.caixuan.cc/L87OHaNO
+   来源: 南京航空航天大学的徐悦等人提出了一种基于强化学习的动态区间环境下的多目标优化算法
+
+154. https://s.caixuan.cc/LEUZYtI5
+   来源: 南安普顿大学的Neil W. Bressloff等人提出一个多目标和多学科的冠状动脉支架设计优化范例
+
+155. https://s.caixuan.cc/LHqIz2WO
+   来源: 南方医科大学的张煜教授团队提出面向医学图像分割的交叉视差依赖网络
+
+156. https://s.caixuan.cc/Lp5ttpT8
+   来源: 南方医科大学的戚力副教授团队提出器官水平的实例分割使临床前腹部激光断层扫描图像的连续时-空频谱分析成为可能
+
+157. https://s.caixuan.cc/L82WOMwJ
+   来源: 南方医科大学的阳维团队提出NCCT合成CECT与对比度增强知识和解剖感知在非对比CT图像中进行多器官分割
+
+158. https://s.caixuan.cc/L2pkpwqQ
+   来源: 南方医科大学路利军教授团队提出基于较少源域标注提高跨域泛化能力的医学图像分割算法FSDA-DG
+
+159. https://s.caixuan.cc/LgKSum0j
+   来源: 南洋理工大学的何祥坤等人提出了一种新颖的约束多目标强化学习算法，用于具有连续动作的个性化端到端机器人控制
+
+160. https://s.caixuan.cc/LAUdf0LL
+   来源: 博洛尼亚大学C. Biserni等人研究了非牛顿流体流变学对动脉旁路移植术的影响
+
+161. https://s.caixuan.cc/L45GYKIe
+   来源: 博洛尼亚大学的Andrea Vacirca等人研究了EVAR中治疗髂动脉的术中方案对术后髂支闭塞的长期影响
+
+162. https://s.caixuan.cc/L8A8nrB1
+   来源: 卡尔加里大学的Zhuoran Dang等人提出了一种基于物理信息强化学习的界面面积预测方法
+
+163. https://s.caixuan.cc/LHBivAMM
+   来源: 卢布尔雅那大学Janez Urevc等人采用量纲分析方法修正单分散悬浮液的Krieger和Dougherty方程，建立了粘度模型
+
+164. https://s.caixuan.cc/LSQ8dVJW
+   来源: 印度理工学院Ramesh等人研究CPB阻断区域附近的血流模式
+
+165. https://s.caixuan.cc/LaUQh3vv
+   来源: 印度理工学院德里分校的Chakraborty等提出新的贝叶斯算子学习框架——变分贝叶斯DeepONet（VB-DeepONet）
+
+166. https://s.caixuan.cc/L6784O0D
+   来源: 印度理工学院的Ajay Bhandari等人利用动态对比增强磁共振成像数据研究人脑肿瘤内血管异质性对药物转运的影响
+
+167. https://s.caixuan.cc/LqrmjKSq
+   来源: 印度理工学院的Ajay Bhandari等人研究抗血管生成药物和脂质体细胞毒性药物对异质性脑肿瘤的对流增强递送联合治疗
+
+168. https://s.caixuan.cc/Le4sCUwy
+   来源: 印度理工学院的Amit Agrawal等人基于红细胞粘度模型提出了一种新的双流体方法
+
+169. https://s.caixuan.cc/LQe30pcy
+   来源: 印度理工学院的Harshal等人提出了一种基于双网格的耦合深度强化学习和计算流体动力学的主动流量控制方法
+
+170. https://s.caixuan.cc/LfRuX6jd
+   来源: 印度理工学院的Krishnamurthy Muralidhar等人提出了小直径动脉和毛细血管内红细胞(RBC)运输的连续模型
+
+171. https://s.caixuan.cc/Lvp3EJwf
+   来源: 印度理工学院的Panigrahi等人探讨了血液粘弹性及血流脉动对狭窄动脉血流动力学的影响
+
+172. https://s.caixuan.cc/LbUJXyRN
+   来源: 印度理工学院的Patnaik等人研究了形态参数对动脉瘤血流动力学和破裂预测的影响
+
+173. https://s.caixuan.cc/LgdLe6JB
+   来源: 印度理工学院的Raghvendra Gupta等人讨论了不同的多相建模方法及其在血流动力学建模中的应用
+
+174. https://s.caixuan.cc/LS1HgQyc
+   来源: 印度马尼帕尔高等教育学院的Nitesh Kumar等人提供了一种方法由FSI研究预测的动脉粥样硬化区域的发展
+
+175. https://s.caixuan.cc/LDdpzGuY
+   来源: 厦门大学信息学院软件工程系助理教授黄晨曦提出结合对比学习和形状感知的半监督医学图像分割算法
+
+176. https://s.caixuan.cc/LehILH3C
+   来源: 厦门大学智能科学与技术系罗志明副教授提出基于可靠伪标签的互学习半监督医学图像分割模型
+
+177. https://s.caixuan.cc/LIg9Sg6R
+   来源: 厦门大学的陈荣钱等人提出一种基于深度强化学习的旋翼翼型优化设计方法
+
+178. https://s.caixuan.cc/LAZmZrxs
+   来源: 受经典多极方法的启发，加州理工学院的Li等人提出了一种新的多级图神经网络框架，该框架仅以线性复杂度捕获所有范围内的相互作用
+
+179. https://s.caixuan.cc/L0Y1A44v
+   来源: 台湾三军总医院Chao和台湾科技大学Wang使用组织病理学图像自动预测卵巢癌治疗效果
+
+180. https://s.caixuan.cc/LI2zv6lL
+   来源: 合肥工业大学的余波等人将物理信息神经网络（PINN）作为一种黑盒求解工具，用于解决偏微分方程的正逆问题
+
+181. https://s.caixuan.cc/LHyUF6Pa
+   来源: 合肥工业大学的姚程等人的研究评估了带有侧支静脉的IVCS中支架的优缺点
+
+182. https://s.caixuan.cc/LbA2B2fx
+   来源: 同济大学的姚佳伟等人提出了一个集成GAN和DRL的多目标优化框架用于宿舍室内气流和采光增强
+
+183. https://s.caixuan.cc/L2INBMIR
+   来源: 名古屋大学的Yasumasa Ito等人使用深度强化学习确定了在恒定初始射流流速条件下抑制和促进射流卷吸和扩散的最佳初始速度分布
+
+184. https://s.caixuan.cc/L99UJBCJ
+   来源: 哈佛医学院Felipe等人对保守或血管内治疗的颅外颈动脉假性动脉瘤患者进行回顾性分析
+
+185. https://s.caixuan.cc/LBnSVsKA
+   来源: 哈佛医学院的Nathan E. Hudson等人研究了单个纤维蛋白纤维裂解过程中的结构影响因素
+
+186. https://s.caixuan.cc/L0vKDFe2
+   来源: 哈佛大学医学院附属麻省总医院的Sitek等人提出在双胎输血综合征胎儿激光手术中的实时胎盘血管分割算法
+
+187. https://s.caixuan.cc/LNFqVJ7w
+   来源: 哈佛大学的E. Hudson等人探究了纤维蛋白溶解过程中单个纤维蛋白纤维的微观结构变化
+
+188. https://s.caixuan.cc/LYFw27O1
+   来源: 哈尔滨医科大学生物信息科学与技术学院Pengju Lv提出基于多尺度多视角网络的肺肿瘤分割模型MSMV-Net
+
+189. https://s.caixuan.cc/LvRgzgag
+   来源: 哈尔滨工业大学的Guo等人在开源的Tensorforce框架内开发了一种浮动基础的优化算法并结合边界元方法来模拟流体动力环境
+
+190. https://s.caixuan.cc/LvVIRf9v
+   来源: 哈尔滨工业大学的胡钢等人在不同风攻角方柱下基于深度强化学习耦合计算流体力学模拟来实现主动流控制
+
+191. https://s.caixuan.cc/L9ZvVW0X
+   来源: 哈尔滨工业大学的胡钢等人提出了一个基于DRL和OpenFOAM的平台，用于DRL在流体力学中的应用
+
+192. https://s.caixuan.cc/LM6GnKbW
+   来源: 哈尔滨工业大学（深圳）苏敬勇教授团队提出基于弱到强扰动一致性和边缘感知对比表示的半监督医学图像分割算法
+
+193. https://s.caixuan.cc/LQGRR5rG
+   来源: 哈萨克斯坦国立大学的Alibek Issakhov等人通过流固耦合研究了缩窄对胸主动脉血流的影响
+
+194. https://s.caixuan.cc/L7Phifuq
+   来源: 哥本哈根大学医院的M. Taudorf等人评估EVAR后内移植物肢体闭塞的发生率并探究闭塞危险因素
+
+195. https://s.caixuan.cc/LZtROrLM
+   来源: 商汤科技研究院的夏青团队提出具有拓扑一致性的冠状动脉和静脉分割算法AVDNet
+
+196. https://s.caixuan.cc/LsRCVEc7
+   来源: 四川大学彭礼清副教授发现主动脉分支保留策略对B型主动脉夹层血栓生长预测的影响
+
+197. https://s.caixuan.cc/LsCf6QKb
+   来源: 四川大学生物力学实验室和华西医院呼吸与危重症医学科共同完成人体全肺数值模拟研究
+
+198. https://s.caixuan.cc/LcNkju0p
+   来源: 四川大学的Xinghua Chang等提出耦合机器学习和经典控制方法的新型气动建模与控制律设计模型以解决飞行器高效机动飞行问题
+
+199. https://s.caixuan.cc/LviG7vDO
+   来源: 四川大学的唐继国教授等人使用欧拉多相模型研究了采用B-T分流术和肺动脉内开窗分隔术的新型手术后肺动脉分支通道的血流情况
+
+200. https://s.caixuan.cc/L0e739OZ
+   来源: 四川大学的李康教授团队提出了一种新的计算流体力学（CFD）分析方法，通过将肝脏区域作为多孔介质进而无创测量门静脉压力梯度
+
+201. https://s.caixuan.cc/LW9cBVLe
+   来源: 四川大学的蒋文涛教授等人阐明了血管内闭塞对主动脉血流动力学的重塑效应
+
+202. https://s.caixuan.cc/LZ4rW7lg
+   来源: 四川大学的郑庭辉教授等人分析了冠状动脉斑块形态的血流动力学影响
+
+203. https://s.caixuan.cc/Ls6i41pm
+   来源: 四川大学的郑庭辉教授等人提出了一种自发性孤立性肠系膜上动脉夹层的新分类
+
+204. https://s.caixuan.cc/LKbhPg2A
+   来源: 四川大学的郑庭辉教授等人提出了血瘀的计算模型，利用双流体原理跟踪血液残留的位置
+
+205. https://s.caixuan.cc/LVJRJJ5V
+   来源: 四川大学的郑庭辉教授等人的研究探讨了形态学和血流动力学对川崎病合并冠状动脉瘤患者血栓形成的影响
+
+206. https://s.caixuan.cc/L5LNGbhL
+   来源: 四川大学郑庭辉教授团队基于血流动力学研究了管腔内血栓的存在和厚度在腹主动脉瘤破裂中的作用
+
+207. https://s.caixuan.cc/LAesDkNv
+   来源: 四川大学郑庭辉教授基于门静脉系统的解剖结构，探讨门静脉血流动力学对PVT发展的影响
+
+208. https://s.caixuan.cc/LjngeWei
+   来源: 四川大学郑庭辉教授的研究旨在探讨主动脉分支动脉对TEVAR后主动脉夹层中血流动力学及常见物理流动现象的影响
+
+209. https://s.caixuan.cc/LfYdyIwp
+   来源: 四川大学郑庭辉教授等人建立了一种无创评估PH患者PCG的方法，并评估其准确性和有效性
+
+210. https://s.caixuan.cc/Lo6gOzLZ
+   来源: 国立巴黎高等矿业学院的Hachem等人结合深度强化学习和计算流体力学评估复杂太阳能发电厂配置上的风负荷以及提供最佳保障策略
+
+211. https://s.caixuan.cc/Lx3jizIR
+   来源: 国防科技大学的姚雯等人提出了一种新的基于New Reptile初始化的物理信息神经网络（NRPINN）
+
+212. https://s.caixuan.cc/LepKccWI
+   来源: 国防科技大学的姚雯等人提出了一种新的贝叶斯物理信息网络学习机，用于在统一的框架下求解带噪声数据的正、逆线性偏微分方程问题
+
+213. https://s.caixuan.cc/LEJEWBu1
+   来源: 土耳其伊斯坦布尔海峡大学的Turan团队提出面向组织病理学的图像分割和合成框架
+
+214. https://s.caixuan.cc/LbSyjd36
+   来源: 土耳其海峡大学的Can Özcan等人结合PIV实验和流固耦合模拟对患者特异性腹主动脉瘤进行了研究
+
+215. https://s.caixuan.cc/LYthnGC5
+   来源: 土耳其阿拉尼亚阿拉丁基库巴特大学的Canbolat等人结合FSI和人工智能对胸主动脉瘤破裂风险进行了研究
+
+216. https://s.caixuan.cc/LZczW6Lk
+   来源: 圣多纳托医院的Marrocco-Trischitta等人采用CFD模型证明改良的主动脉弓着陆区命名法提高了对支架位移力的预测能力
+
+217. https://s.caixuan.cc/LwZKm59U
+   来源: 圣心天主教大学的Tinelli等人分析用于主动脉弓近端着陆区TEVAR的定制近端扇形和开窗支架移植物的早期和中期结果
+
+218. https://s.caixuan.cc/LlqDqKEt
+   来源: 圣母大学的Martina Bukaˇc等人引入了管腔内血栓 (ILT) 的多孔弹性模型来捕获ILT内的流动及其变形
+
+219. https://s.caixuan.cc/LO7VAYwh
+   来源: 埃默里大学Habib Samady等人发现冠心病患者冠状动脉壁切应力与动脉粥样硬化斑块进展、转化及动脉重构的关系
+
+220. https://s.caixuan.cc/LxYTyvWI
+   来源: 埃默里大学Phillip M. Trusty等研究者利用实时MR采集研究呼吸驱动的血流波形对患者特异性血流动力学的影响
+
+221. https://s.caixuan.cc/L3CCL0pF
+   来源: 塞浦路斯大学的Stylianopoul等人提出用于脑癌对流增强给药治疗的计算模拟方法以评估药物尺寸及肿瘤环境对药物输送的影响
+
+222. https://s.caixuan.cc/LR8O2WWV
+   来源: 塞萨利大学的Spanos等人比较了完整和破裂的大腹主动脉瘤（rAAA _80 mm）的解剖差异
+
+223. https://s.caixuan.cc/LHUxsBat
+   来源: 墨西哥蒙特雷技术学院Fabiani教授等人建立模型模拟鸟嘴效应以研究不同程度的胸主动脉支架突出延伸中的流动效应
+
+224. https://s.caixuan.cc/L4mTmA6S
+   来源: 复旦大学人工智能创新与产业研究院漆远教授团队提出半监督医学图像分割算法SemiSAM+
+
+225. https://s.caixuan.cc/LBmlaCll
+   来源: 复旦大学大数据学院庄吓海教授团队提出用于可靠和可解释的肝纤维化分期的多视图证据学习算法MERIT
+
+226. https://s.caixuan.cc/LCqRNLmn
+   来源: 复旦大学的王盛章教授团队提出了基于多相流的细胞破坏模型及相应的评价参数
+
+227. https://s.caixuan.cc/LPA0INSE
+   来源: 复旦大学的王盛章教授等人通过研究调查主动脉夹层患者远端覆膜支架诱导新破口（dSINE）的机械因素
+
+228. https://s.caixuan.cc/LgRkW6D4
+   来源: 复旦大学的王胜章教授等人研究探讨了支架移植物植入后诱发新病变的生物力学机制，分析不同过大尺寸比支架植入时径向力与回弹力的关系
+
+229. https://s.caixuan.cc/Li3E87Io
+   来源: 复旦大学的陶俊等人提出了一种强化学习逆设计（RLID）框架，并将其应用于变工况下的变形翼型设计
+
+230. https://s.caixuan.cc/LZsEFoS5
+   来源: 多伦多大学DIEGO GALLO等人研究了颈总动脉对颈动脉分叉处血流动力学的机制作用
+
+231. https://s.caixuan.cc/LeMIXuE6
+   来源: 多伦多大学Jennifer等人针对David手术后马凡氏B型主动脉夹层患者提出特异性见解
+
+232. https://s.caixuan.cc/LgMDksx3
+   来源: 大连理工大学郭晨龙等人探究动脉粥样硬化病变中颈动脉斑块生长机制
+
+233. https://s.caixuan.cc/L3lKX3WW
+   来源: 天津中医药大学的李正等人提出了一种结合深度强化学习的计算流体动力学方法来模拟和优化金银花提取物的喷雾干燥过程
+
+234. https://s.caixuan.cc/LuHmLRMb
+   来源: 天津大学智能与计算学部苏苒教授提出基于不确定性特征聚合的组织病理学半监督图像分割模型PG-FANet
+
+235. https://s.caixuan.cc/LK8dsyia
+   来源: 太原理工大学的李芬老师的研究旨在从血流动力学角度研究血流动力学与CL覆膜支架配置之间的关系
+
+236. https://s.caixuan.cc/LGN6X0mK
+   来源: 奥尔巴尼医学院的Darling等人研究的目的是确定烟囱式覆膜支架作为开放式旁路手术的替代方案是否能够提供相似的疗效
+
+237. https://s.caixuan.cc/Lyn0j0sg
+   来源: 威斯康星大学的Laura B. Eisenmenger等应用4D Flow MRI评估中老年人的脑血流动力学以初步分析血管老化
+
+238. https://s.caixuan.cc/LO1xLguf
+   来源: 孟买印度理工学院的Amit Agrawal等人提出了一种在几微米特征维的微通道内进行血流模拟的连续体方法
+
+239. https://s.caixuan.cc/Lcap4LPw
+   来源: 宁波市第二医院血管外科的郎德海等人探讨了胸主动脉腔内修复术结合烟囱支架重建左锁骨下动脉（ch-TEVAR）的血流动力学影响
+
+240. https://s.caixuan.cc/L8nmbXEm
+   来源: 宾夕法尼亚大学的Jayaram团队提出一种集成自注意力和卷积的3D医学图像分割混合算法VSmTrans
+
+241. https://s.caixuan.cc/LeKt0D32
+   来源: 宾夕法尼亚大学的Prashant K. Purohit等人研究流体对凝胶断裂韧性的影响
+
+242. https://s.caixuan.cc/LVpzCk2T
+   来源: 宾夕法尼亚大学的Purohit 等人阐明了单个纤维蛋白纤维（血凝块的主要结构组分）在纤维蛋白溶解过程中从局部区域被清除的机制
+
+243. https://s.caixuan.cc/Ldm4wCIc
+   来源: 宾夕法尼亚州立大学的Keefe B. Manning等人开发了一种模拟栓塞的数值方法
+
+244. https://s.caixuan.cc/L5hPCuFU
+   来源: 密歇根大学的Bogdan等人引入了一种分散的基于知识的多智能体强化学习框架，考虑了任务不确定性、模块专业化和重新配置约束
+
+245. https://s.caixuan.cc/LetlV66t
+   来源: 密歇根大学的Jingfeng Jiang等人应用动脉瘤血流动力学空间模式分析分析小腹主动脉瘤的生长状态
+
+246. https://s.caixuan.cc/Lt6OK2Dt
+   来源: 巴西国家科学计算实验室Blanco等人探究锁骨下动脉狭窄引起的盗血的血流动力学机制
+
+247. https://s.caixuan.cc/LHLN7WaP
+   来源: 巴黎文理研究大学的Jonathan Viquerat等人首次提出了DRL在直接形状优化中的应用
+
+248. https://s.caixuan.cc/L94mgreM
+   来源: 巴黎综合理工学院的Abdul I. Barakat等人提出了一个不影响内皮愈合过程同时抑制再狭窄的DES设计优化框架
+
+249. https://s.caixuan.cc/L9PRgGrK
+   来源: 巴黎高等矿业学院的E. Hachem等人使用深度强化学习方法研究翼型形状优化
+
+250. https://s.caixuan.cc/Lr194iOO
+   来源: 布伦瑞克工业大学的Alexander Henkes等人应用物理信息网络在考虑非线性应力和位移场引起的材料不均匀性尖锐的问题
+
+251. https://s.caixuan.cc/LaUBjcBm
+   来源: 布朗大学的Cai等人提出了人工智能测速，通过使用物理信息神经网络将成像数据与基础物理学相结合来量化血流的速度和应力场
+
+252. https://s.caixuan.cc/LFJvPjgm
+   来源: 布朗大学的George Em Karniadakis等人提出了一个基于物理信息神经网络的通用框架用于识别未知的几何和材料参数
+
+253. https://s.caixuan.cc/LZi3TCXt
+   来源: 布朗大学的George Em Karniadakis等人研究物理信息神经网络（PINNs）来模拟高速空气动力学流动的欧拉方程。
+
+254. https://s.caixuan.cc/LRHdemGm
+   来源: 布朗大学的Jagtap等人提出了一种广义时空域分解框架（XPINN），用于求解复杂几何域上的非线性偏微分方程（PDE）
+
+255. https://s.caixuan.cc/LhyjHpJR
+   来源: 布朗大学的Karniadakis等人提出了一个并行区域物理信息神经网络
+
+256. https://s.caixuan.cc/Lbw9RcWD
+   来源: 布朗大学的Raissi等人引入物理信息神经网络被训练来解决有监督的学习任务，尊重由一般非线性偏微分方程描述的任何给定的物理定律
+
+257. https://s.caixuan.cc/L1c7eXjx
+   来源: 布朗大学的蔡胜泽等人集成了数据和数学模型，使用物理信息神经网络(PINN)来模拟流动问题
+
+258. https://s.caixuan.cc/LEqPbO0E
+   来源: 布雷斯特大学医院的Yahia Bellouche等人对冠状动脉血流动力学进行评价并评估了TAVI前后WSS的变化
+
+259. https://s.caixuan.cc/LB0isqf2
+   来源: 希腊开放大学的Lampropoulos等人的研究采用CFD方法探究动脉瘤瘤顶形态的影响
+
+260. https://s.caixuan.cc/LD5VzXrR
+   来源: 帕维亚大学Alessandro等人对TEVAR后血流动力学影响进行患者特异性随访研究
+
+261. https://s.caixuan.cc/LzGmosKA
+   来源: 帕维亚大学Diego等人对TEVAR术后血流动力学影响的患者特异性随访研究
+
+262. https://s.caixuan.cc/LLLdPzjZ
+   来源: 帕维亚大学的A. Reali教授等人提出一个预测TEVAR后患者特异性血流动力学的新型计算框架
+
+263. https://s.caixuan.cc/Lqz8HEGy
+   来源: 帝国理工大学的Dini等人整合弥散张量成像和神经定位弥散和密度成像，通过更精确描述大脑微结构提高对流增强递送干预计算模型的准确性
+
+264. https://s.caixuan.cc/LNkvGNx2
+   来源: 帝国理工大学的Xiao Yun Xu教授团队对IVT-MT与理想支架回收器配置进行数值模拟，以评估完全再通时间和溶解模式的性能
+
+265. https://s.caixuan.cc/LStI7VLG
+   来源: 帝国理工大学的Xiao Yun Xu教授团队提出了一种用于评估各种临床相关场景中溶栓的治疗效果和安全性的数学模型
+
+266. https://s.caixuan.cc/LUR2M3iY
+   来源: 帝国理工大学的Xiao Yun Xu教授团队通过开发的生理流动条件下溶栓计算模型框架来检查凝块位置和大小对溶解模式和再通的影响
+
+267. https://s.caixuan.cc/LobCJgsm
+   来源: 帝国理工大学的Xiao Yun Xu教授团队通过药代动力学和药效学的计算模拟以及局部纤溶模型来评估双重疗法的有效性和安全性
+
+268. https://s.caixuan.cc/L2CRvc4A
+   来源: 帝国理工大学的Xiao Yun Xu教授团队通过药代动力学和药效学的计算模拟并结合局部纤溶模型，评估不同溶栓药物性能
+
+269. https://s.caixuan.cc/LDibC0na
+   来源: 帝国理工大学的Xiao Yun Xu教授等人介绍了一种用于在生理真实的流动条件下对血栓形成和生长进行患者特异性预测的数学模型
+
+270. https://s.caixuan.cc/LKioJ8eK
+   来源: 帝国理工大学的Xiaoyun Xu教授团队提出了一个新的剪切应力诱导的血栓破裂函数
+
+271. https://s.caixuan.cc/LzbAw87b
+   来源: 帝国理工大学的Xiaoyun Xu教授开发了动脉溶栓计算模型，并建立了tPA静脉输注中tPA和溶解蛋白时间浓度的区室模型
+
+272. https://s.caixuan.cc/LTJNcYZ8
+   来源: 帝国理工大学的Xiaoyun Xu等人的研究旨在通过基于患者特定解剖信息的计算流体力学分析了解血流动力学在SINE稳定性中的作用
+
+273. https://s.caixuan.cc/LAxtF7H1
+   来源: 帝国理工大学的徐小云教授等人报告一项计算研究，评估不同解剖变异下分支型支架移植物（BSGs）的血流动力学结果
+
+274. https://s.caixuan.cc/LbrLnzjq
+   来源: 帝国理工大学的徐小云教授等人提出了一种新的计算模型，能够预测生理条件下血栓的形成、生长及其对血流的影响
+
+275. https://s.caixuan.cc/LPMXHAj1
+   来源: 帝国理工学院Xiao Yun Xu教授团队对复杂主动脉弓修复术中分支型覆膜支架进行血流动力学分析
+
+276. https://s.caixuan.cc/LxUY5fVf
+   来源: 帝国理工学院Xiaoyun Xu教授团队为B型主动脉夹层的计算流体动力学模拟生成个性化三维入口速度分布
+
+277. https://s.caixuan.cc/Li4cy0Sn
+   来源: 帝国理工学院Xiaoyun Xu教授团队分析患者特定主动脉血流的出口边界条件的选择
+
+278. https://s.caixuan.cc/LCBKKX6p
+   来源: 帝国理工学院XiaoYun Xu教授对血管内动脉瘤修复中开窗支架移植物位移力进行患者特异性分析
+
+279. https://s.caixuan.cc/LEgeVPi8
+   来源: 帝国理工学院Xiaoyun Xu教授研究团队基于 4D 血流 MRI 的患者特异性主动脉夹层血流计算分析
+
+280. https://s.caixuan.cc/LGbfIR7g
+   来源: 帝国理工学院的Dini等人基于微观水平上流动和轴突的动力学研究微观力学组织与脑白质的宏观运输特性之间的关系
+
+281. https://s.caixuan.cc/LqeMForV
+   来源: 帝国理工学院的Guang Yang提出蒙特卡洛任意标签增强医学图像重建的全局灵敏度和不确定度量化算法
+
+282. https://s.caixuan.cc/LMNAD1Mg
+   来源: 帝国理工学院的Tian Yuan等人开发一种新的有限元模型研究脉动血流对脑组织动态变形的影响
+
+283. https://s.caixuan.cc/LLhaNCSH
+   来源: 帝国理工学院的Tian Yuan等人基于创新的计算框架探究纳米颗粒的粒径和表面电荷对其在脑白质中扩散的影响
+
+284. https://s.caixuan.cc/LnOg0oVE
+   来源: 帝国理工学院的Wang Chi-Hwa等人基于药物对流扩散的数学模型研究不同条件下脂质体包裹的阿霉素在脑肿瘤中的对流增强递送
+
+285. https://s.caixuan.cc/LbBIURlF
+   来源: 帝国理工学院的Wenbo Zhan基于多物理场模型研究不同因素对脂质体包裹的替莫唑胺递送至脑肿瘤的影响
+
+286. https://s.caixuan.cc/Ldb4HWfJ
+   来源: 帝国理工学院的Wenbo Zhan等人通过使用多物理场模型进行参数分析研究六种药物对组织各向异性的反应
+
+287. https://s.caixuan.cc/LKlkhyZF
+   来源: 帝国理工学院的Xiao Yun Xu等人开发一个综合计算模型根据明确的血管结构来解析血管内流动和组织间流动
+
+288. https://s.caixuan.cc/LgmTGi52
+   来源: 帝国理工学院的Zhan Wenbo等人基于药物在脑肿瘤内运输的对流_扩散_反应的数学模型研究六种化疗药物的适用性
+
+289. https://s.caixuan.cc/LfxoyIxv
+   来源: 广州大学的岳磊等人开发了一种采用多策略近端策略优化算法的深度强化学习框架来解决MOMFJSP
+
+290. https://s.caixuan.cc/LwlwGbKo
+   来源: 广州工业大学庄依杰副教授团队对颅内小动脉瘤进行生物力学和血流动力学建模与评价
+
+291. https://s.caixuan.cc/LhS6SpGr
+   来源: 庆应义塾大学大学的Atsushi Hotta等人提出了一种损伤模型来预测血栓在加载_卸载过程中的响应
+
+292. https://s.caixuan.cc/LpuooBYQ
+   来源: 康奈尔大学的 Anjana Jayaraman 等人追踪血栓随时间增长的过程并探究了血栓生长和红细胞积累的趋势
+
+293. https://s.caixuan.cc/LJZtsYjc
+   来源: 康奈尔大学韦尔医学院Karmonik等人进行急性B型主动脉夹层支架置入前后的计算流体力学研究
+
+294. https://s.caixuan.cc/LWtu1bma
+   来源: 延世大学的Jungeun Kim等人提出了一种学习由含时非线性偏微分方程描述的复杂物理过程动力学的方法
+
+295. https://s.caixuan.cc/L9cfrBYZ
+   来源: 得克萨斯大学圣安东尼奥分校的Finol等人设计、开发并评估了使用顺应性腹主动脉瘤体模并结合磁共振成像的体外循环模型
+
+296. https://s.caixuan.cc/LjtUdJKJ
+   来源: 得克萨斯大学奥斯汀分校的Manuel K. Rausch等人通过拟合血凝块的非线性粘弹性行为确定了超粘弹性损伤模型
+
+297. https://s.caixuan.cc/LyqA6dCh
+   来源: 得克萨斯大学的Grace N. Bechtel等人将研究对象拓展至全血凝块，研究血凝块的力学特性与溶解的相互影响机制
+
+298. https://s.caixuan.cc/LXdic5Oy
+   来源: 得克萨斯大学阿灵顿分校的Dajiang Zhu副教授等人提出通过皮层发育连续性转移的学习寿命脑解剖算法
+
+299. https://s.caixuan.cc/LCkAhuq1
+   来源: 德国圣弗朗西斯医院的M. Sugimoto等人确定扭曲度是分支血管内主动脉瘤修复后肾分支闭塞的重要预测因素
+
+300. https://s.caixuan.cc/LXhM1fD6
+   来源: 德国弗劳恩霍夫机床与成型技术研究所的B. Senf等人进行了一项有限元敏感性研究
+
+301. https://s.caixuan.cc/L36aNgmR
+   来源: 德国慕尼黑工业大学的Aaron B. Buhendwa等人将物理信息网络应用于不可压缩的两相流问题。
+
+302. https://s.caixuan.cc/L9u2HDeG
+   来源: 德国斯图加特大学Marc Fischer提出高效参数微调的医学图像分割算法
+
+303. https://s.caixuan.cc/LOkcQU0g
+   来源: 德国海德堡大学的Zenk团队提出医学图像分割中故障检测方法的可比较基准测试：揭示置信度聚合的作用
+
+304. https://s.caixuan.cc/LwHytNJx
+   来源: 德国维尔茨堡大学的Heinze等人基于图像的血管组织建模对复杂的血管网络及其血管互联性进行定性定量评估以深化抗血管生成疗法的理解
+
+305. https://s.caixuan.cc/L0OugBHI
+   来源: 德国航空航天中心的Ribeiro等人提出DeepCFD：基于卷积神经网络（CNN）的模型，有效地近似非均匀稳定层流问题的解决方案
+
+306. https://s.caixuan.cc/Lxxqcvoj
+   来源: 德国雷根斯堡大学Merhof教授团队提出用于医学图像分割的自引导多尺度Transformer算法MedScale-Former
+
+307. https://s.caixuan.cc/L8yYAPHy
+   来源: 德尔夫特理工大学Romana Perinajov´等人研究胸部动脉血流CFD-MRI耦合模拟中几何诱导的壁面剪切应力变化
+
+308. https://s.caixuan.cc/LfRPYZUe
+   来源: 德州农工大学的Coutinho等人增加了一个不依赖先验定义的人工粘度（AV）值手动调整带扩散项的PDE
+
+309. https://s.caixuan.cc/LzTytDSg
+   来源: 德黑兰医科大学Farshad Tajeddini等人使用双向FSI模拟对了两种不同狭窄程度的LAD-ITA移植患者进行特异性模拟
+
+310. https://s.caixuan.cc/Lh03Ae3a
+   来源: 悉尼新南威尔士大学的Caroline C. O'Brien等人探讨血管内随时间变化的流体环境及其对动脉药物分布模式的影响
+
+311. https://s.caixuan.cc/LxR4avP1
+   来源: 意大利圣多纳托医院Belvroy等人研究了主动脉扭曲度对胸主动脉瘤位移力的影响
+
+312. https://s.caixuan.cc/LCbm376w
+   来源: 意大利帕维亚大学的Michele Conti等人通过计算流体力学研究胸主动脉腔内修复术（TEVAR）引起的血流动力学变化
+
+313. https://s.caixuan.cc/LZWw0gY8
+   来源: 意大利米兰理工大学大学Giacomo等人使用流体-结构相互作用的耦合方法对主动脉动脉瘤的案例研究
+
+314. https://s.caixuan.cc/LnUZVNo3
+   来源: 慕尼黑工业大学Adeleh Bitarafan等人提出基于掩码数据流引导传播学习的自监督三维医学图像分割算法
+
+315. https://s.caixuan.cc/Lnv9E8Cf
+   来源: 拉夫堡大学的Vadim V. Silberschmidt等人研究了干燥和湿胶原蛋白的断裂行为和加强机制
+
+316. https://s.caixuan.cc/L5wZdT9k
+   来源: 挪威Simula研究所的Kristian Valen-Sendstad等人开发和验证了一个用于移动域的开源CFD求解器
+
+317. https://s.caixuan.cc/L3RvYdtX
+   来源: 挪威研究中心的台雪成教授团队提出一种学习算子的解决方案来映射容易测量生理信号的血流方程
+
+318. https://s.caixuan.cc/L1uPZCpC
+   来源: 挪威科技大学的 Gerhard A. Holzapfel 等人进一步扩展离散纤维分散模型以同时考虑胶原纤维和基质的弹性和粘性行为
+
+319. https://s.caixuan.cc/LKTmg0AA
+   来源: 挪威科技大学的Larsen 等人提出了一种基于DRL的适用于资源受限四旋翼系统的城市区域描述性数字孪生方法
+
+320. https://s.caixuan.cc/L7OXplCF
+   来源: 挪威科技大学的Sebastien Gros等人提出了一种基于强化学习（RL）的多元优化方法
+
+321. https://s.caixuan.cc/LV71r9uz
+   来源: 捷克布拉格技术大学Radka Keslerová对广义牛顿流体在S型旁路中流动的数值模拟
+
+322. https://s.caixuan.cc/Limf8YtQ
+   来源: 斯坦福医疗保健中心的Kenneth Tran等人使用患者特异性计算血流模拟评估开窗和分支腔内动脉瘤修复之间的血流动力学差异
+
+323. https://s.caixuan.cc/LHouRBar
+   来源: 斯坦福大学Jongmin Seo团队通过计算模拟，发现SVG几何形状对静脉移植物和冠状动脉血流动力学的影响
+
+324. https://s.caixuan.cc/LBFy5U9C
+   来源: 斯坦福大学医学院的Shad等人利用计算流体动力学研究可能导致假腔扩大的血流动力学条件
+
+325. https://s.caixuan.cc/LRUts5FC
+   来源: 斯坦福大学的Charles R. Qi等人设计了一种新型的神经网络PointNet并应用在对象分类、部分分割、场景语义解析等场景
+
+326. https://s.caixuan.cc/L6ERogW2
+   来源: 斯坦福大学的DAVID B. LINDELL等人介绍了一个基于波的成像模型的非视距成像问题
+
+327. https://s.caixuan.cc/L8DwTkoH
+   来源: 斯坦福大学的Qi等人提出PointNet++，引入分层神经网络递归的应用PointNet对输入点集的嵌套分区
+
+328. https://s.caixuan.cc/LV0eSUfr
+   来源: 新加坡南洋理工大学的Jian Cheng Wong等人提出了一种新颖的PINN方法，提高精度的情况下进行有效的训练
+
+329. https://s.caixuan.cc/LVrLOQlB
+   来源: 新加坡国立大学的Chi-Wei Ong等人探讨了TEVAR介入治疗对TAA血流动力学的影响
+
+330. https://s.caixuan.cc/LC07lnu1
+   来源: 新加坡国立大学的Hu等人提出了增强物理信息神经网络，以进一步改善扩展PINN以及vanilla PINN方法
+
+331. https://s.caixuan.cc/LzL78B02
+   来源: 新加坡国立大学的HwaLiang Leo等人提出了一种新型覆膜支架设计，可积极改变主动脉弓处的血流动力学
+
+332. https://s.caixuan.cc/LfWFBTKj
+   来源: 新加坡国立大学的Kwong Ming Tse等人研究了老年主动脉几何形状变化对血流动力学的影响
+
+333. https://s.caixuan.cc/LM7zoHHm
+   来源: 新加坡国立大学的Leo等人的研究基于计算流体力学，研究了新型血流重塑覆膜支架对高角度腹主动脉瘤血流动力学特征的影响
+
+334. https://s.caixuan.cc/LMGQFl3h
+   来源: 新加坡国立大学的胡哲远等人提出增广物理信息神经网络(APINN)
+
+335. https://s.caixuan.cc/Lrbpi20r
+   来源: 新疆大学的冯新龙等人提出了一种改进的多输入高维特征的自适应权重的神经网络用来求解欧拉方程
+
+336. https://s.caixuan.cc/LNQYL7Zj
+   来源: 新疆大学的袁杰等人提出了一种基于GRU和PPO的衰减羽流源定位DRL算法
+
+337. https://s.caixuan.cc/LrALamPt
+   来源: 新西伯利亚国立大学Y. Fedotova等人探究了血流动力学和形态学与腹主动脉瘤局部表面生长的关系
+
+338. https://s.caixuan.cc/L0GMGsTf
+   来源: 日本京都京都府立医科大学心血管外科Satoshi等对右锁骨下动脉插管进行计算流体力学模拟
+
+339. https://s.caixuan.cc/LQdguiBE
+   来源: 日本名古屋藤田卫生大学的Kamath V.等人探讨了CFD能否正确预测三叉神经痛（TN）和半面痉挛（HFS）中的责任血管
+
+340. https://s.caixuan.cc/Lxv8EtM4
+   来源: 日本国立医院机构Kanmon医疗中心的Murakami等人分析支架置入后的囊状腹主动脉瘤模型的血流动力学变化以改善血流动力学因素
+
+341. https://s.caixuan.cc/LbSZjkx9
+   来源: 日本广崎大学医学院Yuki等对主动脉瘤手术反向插管法进行CFD研究
+
+342. https://s.caixuan.cc/LNspbgLE
+   来源: 日本早稻田大学的Yagi等人研究了三叉神经痛及半面肌痉挛患者神经血管接触时责任血管的血流动力学特征
+
+343. https://s.caixuan.cc/LVUPeoy5
+   来源: 昆士兰科技大学的YuanTong Gu等人提出了一种新的拓扑优化框架：基于物理信息神经网络的拓扑优化（PINNTO）
+
+344. https://s.caixuan.cc/LBmTVeNz
+   来源: 智利天主教大学的Costabal等人基于Laplace-Beltrami算子的特征函数提出一种新的PINN位置编码机制
+
+345. https://s.caixuan.cc/LOBzmxMF
+   来源: 智利天主教大学的Sergio A. Uribe等人基于真实主动脉体外模型研究正常和主动脉缩窄条件下的血流动力学
+
+346. https://s.caixuan.cc/LG23giM6
+   来源: 曼彻斯特大学Amir Keshmiria团队对外周动脉搭桥手术中新型移植物几何形状进行数值研究
+
+347. https://s.caixuan.cc/LIUyJQyi
+   来源: 曼彻斯特大学的毛逸谦等人提出了基于NODE模型的DRL使用两个合成射流致动器控制二维圆柱体涡流脱落过程的首次应用
+
+348. https://s.caixuan.cc/LMHMw1ab
+   来源: 杜伦大学Carvalho等人提出了一种方法识别动态规律，通过集成去噪技术平滑信号，并引导置信区间来量化估计的不确定性
+
+349. https://s.caixuan.cc/Lc6XeVbK
+   来源: 杜克大学Sina Farsiu等人提出基于自知识蒸馏Transformer用于裂隙灯显微摄影中微生物性角膜炎生物标志物的分割算法
+
+350. https://s.caixuan.cc/LYd20nEB
+   来源: 杜克大学的Nelson等人关注纤维蛋白聚合数学模型的背景，并讨论了凝血酶，纤维蛋白（原）和因子XIII之间的生化相互作用的贡献
+
+351. https://s.caixuan.cc/LAQtZerw
+   来源: 杭州电子科技大学厉力华教授团队提出基于多视角非负矩阵分解的乳腺癌影像-多基因组学预后分析方法
+
+352. https://s.caixuan.cc/LZiEuRZj
+   来源: 杭州电子科技大学的孙垚棋等人提出基于大视觉模型的多维方向性增强分割算法
+
+353. https://s.caixuan.cc/LLJKeHgp
+   来源: 林茨大学的Mahdi Saeedipour等人模拟了不同的微通道几何形状和血液红细胞压积，探讨这些因素对红细胞损伤的影响
+
+354. https://s.caixuan.cc/LDAZ9UX2
+   来源: 柏林工业大学的Florian Arnold等人基于物理信息神经网络提出了一个状态空间模型
+
+355. https://s.caixuan.cc/LJKjQenm
+   来源: 柏林工业大学的Houkun Zhu等人提出了一种新的基于深度强化学习的静态参数调整方法
+
+356. https://s.caixuan.cc/LLHYL3i2
+   来源: 根特大学Tricht等人用计算流体动力学(CFD)研究不同的动脉吻合口几何形状对血液透析血管通路移植物的血流动力学影响
+
+357. https://s.caixuan.cc/L52kmE4i
+   来源: 格拉斯哥大学的Sean McGinty等人提出了一种结合时空药物输送的新型连续再狭窄模型
+
+358. https://s.caixuan.cc/LumcyeZj
+   来源: 梅州市人民医院的钟志雄院长等人研究了腹主动脉瘤破裂相关危险因素的流行程度
+
+359. https://s.caixuan.cc/L8xh8u29
+   来源: 比萨大学A. Mariotti等人对胸主动脉入口流速波形进行随机敏感性分析
+
+360. https://s.caixuan.cc/LnKYZajd
+   来源: 比萨大学的Mariotti等人对一个用于患者特异性升胸主动脉体外血流动力学分析的模拟循环回路的实验设置进行了随机敏感性分析
+
+361. https://s.caixuan.cc/LAtQvJ4d
+   来源: 江南大学人工智能与计算机学院潘祥副教授团队提出用于病理图像分割的域增量弱监督状态空间模型DIPathMamba
+
+362. https://s.caixuan.cc/LxfXZxha
+   来源: 河北医科大学第二医院的毕伟教授等人采用计算流体力学方法来研究左锁骨下动脉可能会导致急性血栓形成或动脉硬化的血流动力学变化
+
+363. https://s.caixuan.cc/LyIaYUdu
+   来源: 河北师范大学计算机与网络空间安全学院张朝晖副教授提出用于医学图像分割的金字塔傅里叶变形网络PFD-Net
+
+364. https://s.caixuan.cc/LVhJedLb
+   来源: 法国索邦大学的Vignon-Clementel等人开展了一项队列纵向研究以确定腹主动脉瘤生长的形态学和血流动力学预测因子
+
+365. https://s.caixuan.cc/LHwMp9Y0
+   来源: 波兰主要消防学校的Andrzej Polanczyk通过CFD确定覆膜支架的空间配置对实际血流条件下泄漏风险的影响
+
+366. https://s.caixuan.cc/LlWLUqd0
+   来源: 波士顿大学的 Manuel Rausch 等人在有限元框架内研究了嵌入式纤维网络的力学机制
+
+367. https://s.caixuan.cc/L06VZrlU
+   来源: 波尔图大学工程学院的Pinto等人结合流固耦合和血液粘弹性分析右冠状动脉内的血流动力学
+
+368. https://s.caixuan.cc/Loj7hxEe
+   来源: 洛约拉大学的Cho等人评估支架过度突入主动脉弓与胸主动脉支架移植物塌陷相关的生物力学影响
+
+369. https://s.caixuan.cc/Ljd9JSzQ
+   来源: 浙江大学乔永辉教授定量揭示健康和病变主动脉的能量损失组成
+
+370. https://s.caixuan.cc/LbgT9wpe
+   来源: 浙江大学光电科学与工程学院何赛灵教授提出用于肝脏肿瘤分割的空间和频谱双分支聚合网络
+
+371. https://s.caixuan.cc/L8GJhRZd
+   来源: 浙江大学医学院附属第一医院的谢珏主任等人将血液中的红细胞表示为连续的非牛顿相，并构建微血管血流的多相模型
+
+372. https://s.caixuan.cc/L455yXaJ
+   来源: 浙江大学的乔永辉教授等人预测了FDA基准喷嘴模型内的血栓形成
+
+373. https://s.caixuan.cc/LJ1a1S5t
+   来源: 浙江大学的罗坤教授等人对严重狭窄的5条CA进行了计算流体动力学分析
+
+374. https://s.caixuan.cc/LwrcYzqQ
+   来源: 浙江大学的罗坤教授等人的研究旨在评价TEVAR期间覆膜支架导入鞘的血流动力学效应
+
+375. https://s.caixuan.cc/Ld1zjInY
+   来源: 浙江大学的赵西增等人提出一种既具有良好消波性能又具有良好换水性能的主动控制升沉板防波堤方法
+
+376. https://s.caixuan.cc/Lanyh5f9
+   来源: 浙江大学的高琪教授等人利用体外实验研究冠状动脉病变的血流动力学因素
+
+377. https://s.caixuan.cc/Lal9Fnfw
+   来源: 海南大学生物医学工程学院刘谦教授提出用于结肠隐窝分割的双分支非对称编码器-解码器网络
+
+378. https://s.caixuan.cc/LyJorq7P
+   来源: 清华大学江宇轩等人研发超声新技术，实现动脉刚度、应力与血压的同步解码
+
+379. https://s.caixuan.cc/LLnQP7Dg
+   来源: 清华大学的张宇教授等人引入多相PCI数值(MP-PIC)模型分别计算血浆流动和血细胞运动
+
+380. https://s.caixuan.cc/L1pp8sBx
+   来源: 温州大学的林博远教授团队研究了血管压力水平（VPL）和药物注射时间（DIT）等因素对溶栓治疗的影响
+
+381. https://s.caixuan.cc/L0Hlzts9
+   来源: 澳大利亚蒙纳士大学的Himashi Peiris提出不确定性双视图导向的半监督医学图像分割算法
+
+382. https://s.caixuan.cc/LVelG5R0
+   来源: 澳大利亚迪肯大学的Saleh Gharaie等人采用CFD研究了狭窄对颈内动脉分支血流动力学的影响并以此预测中风
+
+383. https://s.caixuan.cc/LvLfv71i
+   来源: 澳大利亚阿德莱德大学的Navid Freidoonimehr等人研究了狭窄形状对冠状动脉狭窄后血流动力学的影响
+
+384. https://s.caixuan.cc/L0T9Ll0L
+   来源: 澳门理工大学应用科学学院檀韬副教授团队提出用于超声心动图左心室分割的生物启发轻量级高效网络算法BLENet
+
+385. https://s.caixuan.cc/LyRWdpFt
+   来源: 爱尔兰国立大学的Patrick McGarry等人首次将血栓的不可恢复塑性变形机制纳入建模框架
+
+386. https://s.caixuan.cc/LL17ZySx
+   来源: 爱尔兰国立戈尔韦大学的McGarry等人开发了血凝块破碎的预测模型，并且首次对血凝块的成分依赖性断裂特性进行了实验表征
+
+387. https://s.caixuan.cc/LrVLQEMt
+   来源: 牛津大学的Cameron等人提出了一种新的神经网络架构，它可以接受边界几何形状以三角形网格的形式作为输入，得到一个近似的解决方案
+
+388. https://s.caixuan.cc/LkGlzCxg
+   来源: 牡丹江医学院的陈广新等人综述了动脉瘤血流动力学分析的综合多学科方法，包括数值模拟、体外实验与深度学习
+
+389. https://s.caixuan.cc/L0kj55d1
+   来源: 犹他大学的Amirhossein Arzani等人利用特定患者的计算流体动力学模拟研究SAE常用的远端和近端栓塞策略
+
+390. https://s.caixuan.cc/LyxtKdPN
+   来源: 独协医科大学的Takei团队评估了急性主动脉夹层冷冻象鼻术后下游主动脉假腔内的血流情况
+
+391. https://s.caixuan.cc/L9x6TWq1
+   来源: 瑞典林雪平大学的Trenti等人采用4D Flow CMR研究了腹主动脉瘤患者血流动力学情况
+
+392. https://s.caixuan.cc/Ldb7QSR0
+   来源: 瑞典萨尔格伦斯卡大学医院的Anne Cervin等人设计了人群队列匹配研究以比较开放手术和血管内修复术治疗腘动脉瘤的效果
+
+393. https://s.caixuan.cc/L7AEycho
+   来源: 瑞士伯尔尼大学的Ali Mokhtari等人探究了4D flow MRI在预测不同狭窄程度颈动脉模型中的血流动力学的能力
+
+394. https://s.caixuan.cc/LLGTipL3
+   来源: 瑞士日内瓦大学医院Reymond等人提出了一种基于微计算机断层重建的脑动脉瘤流变动力学分析新方法
+
+395. https://s.caixuan.cc/LuvYLyfW
+   来源: 瑞士罗氏有限责任公司Alvaro Gomariz等人提出联合半监督和对比学习实现领域泛化和多领域分割算法
+
+396. https://s.caixuan.cc/LHgj9OjP
+   来源: 电子科技大学机械与电气工程学院李康副教授团队提出通过调节模型自训练增强医学图像分割的无源域自适应算法
+
+397. https://s.caixuan.cc/Lr38FLRp
+   来源: 皇家理工学院的Garcia等人利用深度强化学习提出了一种新的动态闭环主动流动控制方法以抑制NACA 0012翼型流动分离
+
+398. https://s.caixuan.cc/L2V4Pcx0
+   来源: 科廷大学医学院的Chong等人采用粒子图像测速（PIV）实验比较AFX支架和主动脉分叉覆膜支架（CERAB）的血流动力学
+
+399. https://s.caixuan.cc/LjKigbZ7
+   来源: 空军军医大学的刘洋教授等人评估采用不同手术策略进行覆膜姑息性支架扩张后，极重度主动脉缩窄患者远端血管形态和血流动力学变化
+
+400. https://s.caixuan.cc/LrVMuz0V
+   来源: 米兰理工大学的Paolo Zunino等人研究了多孔弹性对流体-结构相互作用的影响
+
+401. https://s.caixuan.cc/LVME16sE
+   来源: 米纳斯吉拉斯联邦大学的Silva等人使用流体-结构数值模拟方法对覆盖主动脉弓所有区域的动脉瘤模块化支架移植物进行了评估
+
+402. https://s.caixuan.cc/LtuHZthn
+   来源: 索尔塔大学医疗集团的Mercanti等人的研究旨在评估烟囱支架植入术（作为一种处理冠状动脉闭塞的补救技术）的安全性和有效性
+
+403. https://s.caixuan.cc/LZ5Oky2W
+   来源: 约翰霍普金斯大学的William等人提出一种基于深度强化学习方法的VMAT机器参数优化方法
+
+404. https://s.caixuan.cc/LGVLEJa5
+   来源: 纽约大学的Aaron L. Fogelson等人构建了一个包含主要化学反应的多尺度纤溶模型
+
+405. https://s.caixuan.cc/LiTbcB6K
+   来源: 纽约州立大学的Meng等人的研究旨在探讨不同入口边界条件对患者特异性动脉瘤几何模型中血流动力学预测的影响
+
+406. https://s.caixuan.cc/LEVoYQwM
+   来源: 罗兹工业大学的Polańczyk等人应用CFD技术确定覆膜支架空间配置和血细胞比容值对血流动力学的影响以及支架闭塞的风险
+
+407. https://s.caixuan.cc/LlxI8E9N
+   来源: 罗格斯大学的K. Ramanujam等人针对血流产生的剪切力这一生理条件，系统开展了剪切诱导的血凝块破裂实验与模拟
+
+408. https://s.caixuan.cc/LPy6emf7
+   来源: 罗格斯大学的Ranjini K. Ramanujam等人将实验与FS模型结合，探讨了纤维蛋白原浓度对纤维网络破裂的影响
+
+409. https://s.caixuan.cc/Lm5OCMo9
+   来源: 罗格斯大学的Valerie Tutwiler等人使用不同的TF浓度改变并分析人血浆凝块的结构和韧性
+
+410. https://s.caixuan.cc/LwsyiK4K
+   来源: 罗格斯大学的Valerie Tutwiler等人探究了单根纤维的原纤维堆积密度改变纤维蛋白溶解过程
+
+411. https://s.caixuan.cc/LRdyv2EY
+   来源: 罗格斯大学的Valerie Tutwiler等人探究了纤维蛋白凝块的内部纤溶过程
+
+412. https://s.caixuan.cc/L6tg2qy1
+   来源: 罗格斯大学的Valerie Tutwiler等人研究了纤溶酶介导的降解作用对纤维蛋白溶解及组织纤溶酶原激活剂扩散的影响
+
+413. https://s.caixuan.cc/LzJ3X09V
+   来源: 罗格斯大学的Valerie Tutwiler等人结合实验和模拟确定血浆凝块的韧性与纤维蛋白含量的关系
+
+414. https://s.caixuan.cc/LUIpNWkP
+   来源: 罗格斯大学的Valerie Tutwiler等人结合数学模型与实验方法探究了血块收缩对血块降解的影响
+
+415. https://s.caixuan.cc/L4Mr4ndA
+   来源: 美国加州大学洛杉矶分校的David S Liebeskind等人采用计算流体力学检测颅内动脉粥样硬化性狭窄对血流动力学的影响
+
+416. https://s.caixuan.cc/L4G9fH1C
+   来源: 美国南卡罗来纳大学的Tarek Shazly等人研究了斑块和局部血管几何形状对局部血流动力学的影响
+
+417. https://s.caixuan.cc/undefined
+   来源: 美国哥伦比亚大学的Haim Waisman等人提出了一种新型的非局部多孔弹性模型
+
+418. https://s.caixuan.cc/L6arKO2d
+   来源: 美国国立卫生研究院临床中心的Ronald M. Summers提出用于无标记血管分割的对比扩散对抗表征学习算法C-DARL
+
+419. https://s.caixuan.cc/LU60kySm
+   来源: 美国威尔康奈尔医学院的Qingyu Zhao和斯坦福大学的Wei Peng提出解剖学合理的脑部MRI元数据条件生成模型
+
+420. https://s.caixuan.cc/L0aZ8on2
+   来源: 美国宾夕法尼亚州立大学Brent A. Craven等人采用CFD和体外实验研究了脑血管血流和血栓的迁移
+
+421. https://s.caixuan.cc/LrW8eulw
+   来源: 美国斯坦福大学邢小涵博后团队提出使用Mamba和空间频率信息融合的多模态MRI重建算法MMR-Mamba
+
+422. https://s.caixuan.cc/L9gUin4Q
+   来源: 美国犹他大学的Kenneth L. Monson等人探讨了脑动脉在重复性过度牵拉下的力学响应
+
+423. https://s.caixuan.cc/LZK0COI0
+   来源: 美国芝加哥大学的Luka Pocivavsek团队构建理论框架描述血凝块的时间依赖性变形和破裂
+
+424. https://s.caixuan.cc/LtSUAeK0
+   来源: 美国西北大学放射学系的Ulas Bagci通过Medico 2020和MedAI 2021验证结肠镜息肉和器械分割方法
+
+425. https://s.caixuan.cc/LEk98wyS
+   来源: 耶鲁医学院的Bellamkonda等人研究了小腹主动脉瘤破裂患者的特点及1年预后
+
+426. https://s.caixuan.cc/LAl1FIfF
+   来源: 色萨利大学的Matsagkas等人探讨了四种具有不同结构、材料和固定类型的支架移植物系统之间的术后血流动力学变异性
+
+427. https://s.caixuan.cc/LNi1bOJa
+   来源: 芝加哥大学Hidenori Hayashi等人设计血管移植物用于猪的主动脉弓重建
+
+428. https://s.caixuan.cc/LvxE5NgC
+   来源: 苏黎世大学医院的Enrico Ferrari等人分析了肾CG的结果，并将解剖和技术细节与根部和冠状动脉的人体测量数据进行了比较
+
+429. https://s.caixuan.cc/L9LaebYk
+   来源: 英国伦敦圣乔治大学Yousseﬁ等人的研究采用CFD方法评估不同主动脉瓣形态对胸主动脉内血流模式螺旋度的影响
+
+430. https://s.caixuan.cc/LBMvgKbp
+   来源: 英国伦敦玛丽女王大学的黄星儒团队提出基于大视觉模型的多维方向性增强分割算法
+
+431. https://s.caixuan.cc/LCFx1327
+   来源: 英国帝国理工学院皇家工程院院士郭毅可提出医学图像分割的高效数据利用方法
+
+432. https://s.caixuan.cc/Llx5yw7x
+   来源: 英国爱丁堡大学的A.R. Brady等人研究了主动脉瘤直径与心血管死亡风险的相关性
+
+433. https://s.caixuan.cc/LEmeiksX
+   来源: 英国诺丁汉特伦特大学的Bodaghi等人采用流固耦合方法研究了动脉粥样硬化对血流动力学、动脉组织重塑和颅内动脉瘤起始风险的影响
+
+434. https://s.caixuan.cc/LjwpNhXi
+   来源: 荷兰埃因霍温理工大学的Fonken等人基于纵向超声和流固耦合研究了ILT形成的复杂性及其对AAA生长的影响
+
+435. https://s.caixuan.cc/L1rQgNCj
+   来源: 荷兰生物医学工程学院Merih Cibis等人发现颈动脉壁剪切应力与颈动脉壁增厚的关系
+
+436. https://s.caixuan.cc/L8zpTuyq
+   来源: 荷兰鹿特丹伊拉斯姆斯大学医学中心的Patrick W等人评价了紫杉醇不同剂量和释放动力学对新生内膜增生的影响
+
+437. https://s.caixuan.cc/LgADGkpM
+   来源: 荷兰鹿特丹大学医学中心的Gijsen等人对由健康人供血制备的多种成分类血栓模型的拉伸与压缩力学行为进行了对比
+
+438. https://s.caixuan.cc/LtPVjzmr
+   来源: 莫斯科国立大学的Aleksey V. Belyaev等人讨论了在动脉瘤和血液再循环区血栓形成期间的物理和生化效应
+
+439. https://s.caixuan.cc/L1PoXPZT
+   来源: 莱斯大学的Rambod Mojgani等人在拉格朗日参考系上对非线性对流扩散方程重新制定PINN，即LPINN
+
+440. https://s.caixuan.cc/LrQIPA5E
+   来源: 萨维塔工程学院的Natrayan Lakshmaiya等人提出了DRL在火箭喷嘴计算设计探索中的新应用
+
+441. https://s.caixuan.cc/LeeJZm9M
+   来源: 萨诸塞大学的Valeri Barsegov等人对具有不同裂纹尺寸的纤维蛋白凝胶进行了拉伸试验并分析了其超微结构变化
+
+442. https://s.caixuan.cc/L5YaAHal
+   来源: 葡萄牙波尔图大学Pinto等人左冠状动脉几何参数与动脉粥样硬化血流动力学参数的相关性
+
+443. https://s.caixuan.cc/LYjcMFYT
+   来源: 蒂米什瓦拉理工大学Alin F. Totorean等研究者从螺旋度和涡度的角度分析了螺旋几何的效率
+
+444. https://s.caixuan.cc/LNbOPSlw
+   来源: 蔚山大学医学院的Yeonwoo Choi等人评估了TAVR术后主动脉瓣复合体血栓的发生率、预测因素及其临床结局
+
+445. https://s.caixuan.cc/Lt9QnUco
+   来源: 蔚山大学的Young-Hak等人介绍了一种深度强化学习框架，用于机器人辅助冠状动脉介入治疗中的自主导丝导航
+
+446. https://s.caixuan.cc/LJTQ2JwH
+   来源: 血栓研究实验室的Vandelanotte等人证实 r-tPA的溶栓效果高度依赖于血栓的成分并且提出靶向非纤维蛋白成分来克服抵抗
+
+447. https://s.caixuan.cc/LyqCXMg8
+   来源: 西北工业大学乔永辉教授研究了B型主动脉夹层有意覆盖左锁骨下动脉前后的流体力学差异
+
+448. https://s.caixuan.cc/LURX0fPt
+   来源: 西北工业大学乔永辉教授研究了左锁骨下动脉原位开窗覆膜支架对胸主动脉腔内修复术后血流动力学的影响
+
+449. https://s.caixuan.cc/LueYOy48
+   来源: 西北工业大学乔永辉教授评估原位开窗LSA支架成形术后LSA支架伸出段的生物力学意义
+
+450. https://s.caixuan.cc/LZ7VAHia
+   来源: 西北工业大学的乔永辉教授团队结合两相非牛顿模型与流固耦合方法模拟患者特异性夹层主动脉的血流情况
+
+451. https://s.caixuan.cc/LMRfkvel
+   来源: 西北工业大学的张拓团队利用对比机器学习揭示跨物种共享和特异性的脑功能结构
+
+452. https://s.caixuan.cc/L7GTHMOG
+   来源: 西北工业大学计算机学院夏勇教授提出用于医学图像分割的标注者偏好和随机标注误差建模方法
+
+453. https://s.caixuan.cc/LDarfyyi
+   来源: 西北工业大学黄庆华教授团队提出选择性多尺度融合Mamba医学图像分割算法
+
+454. https://s.caixuan.cc/L5Z8QlnR
+   来源: 西南交通大学的周绍兵教授团队研究了不同形状纳米颗粒在血栓诱导的剪切应力梯度下的行为及其在脑卒中中增强靶向溶栓的机制
+
+455. https://s.caixuan.cc/Lg2xCkA1
+   来源: 西安交通大学大学徐颂华教授团队提出一种基于三角星空间光谱融合编码和熵感知双解码的冠状动脉分割网络
+
+456. https://s.caixuan.cc/LWsKCwpL
+   来源: 西安交通大学徐颂华团队提出用于医学图像分割的具有丰富信息交互的双路径U-Net算法
+
+457. https://s.caixuan.cc/LRv90z5e
+   来源: 西安交通大学的Chen Gang等人提出了一个将流场特征直接嵌入空气动力学形状优化过程的智能优化体验学习框架
+
+458. https://s.caixuan.cc/LRrRZRuw
+   来源: 西安交通大学的严如强等人使用深度强化学习解决了多目标优化问题，其中包括维护成本和可靠性模型
+
+459. https://s.caixuan.cc/LrUX5TFY
+   来源: 西安航空学院的何文博等人采用体外实验研究了非稳态条件下动脉瘤内血流的特征参数分布
+
+460. https://s.caixuan.cc/LF1qaKt6
+   来源: 西班牙儿科计算成像中心的 Sandra Bernaus 等人对脑血管迂曲测量方法进行新分类
+
+461. https://s.caixuan.cc/LF7B1k7l
+   来源: 西班牙的萨拉戈萨大学的M. Malvè等人提出了一项基于计算流体力学的参数研究，旨在提供有关主动脉疾病的信息
+
+462. https://s.caixuan.cc/LeS4vcZq
+   来源: 西班牙纳瓦拉公立大学Patricia等发现几何和血流动力学变化对动脉粥样硬化机械生物学模型的影响
+
+463. https://s.caixuan.cc/Lymi1YJ0
+   来源: 西里西亚工业大学的Maria Gracka等人采用了具有两个双曲收缩形状的微通道内血流的数值计算流体力学(CFD)模型
+
+464. https://s.caixuan.cc/LENJICwQ
+   来源: 詹姆斯库克大学的Jonathan Golledge等人探讨了入组时血压最佳控制与肾下腹主动脉瘤生长之间的关联
+
+465. https://s.caixuan.cc/LipK86m9
+   来源: 谢菲尔德大学Paul C. Evans等人发现动脉粥样硬化斑块中剪切应力与抗动脉粥样硬化因子KLK10解耦
+
+466. https://s.caixuan.cc/Lud1KAjT
+   来源: 谢里夫理工大学的Ahmadian等人针对三维患者特定颈动脉开发了血栓溶解模型，研究不同血管壁模型对血栓溶解的影响
+
+467. https://s.caixuan.cc/L8CHfUSC
+   来源: 越南国立大学的Minh提出了一个在自动交易系统中基于强化学习框架对策略参数进行优化的新方法
+
+468. https://s.caixuan.cc/L2ogi555
+   来源: 都灵理工大学的F. Capuano等人研究了DRL在提高 HPL 控制系统的效率和安全性方面的潜力
+
+469. https://s.caixuan.cc/Lky8gFtS
+   来源: 都灵理工大学的Pintore等人比较了四种方法来执行Dirichlet边界条件的PINNs和变分物理信息神经网络（VPINNs）
+
+470. https://s.caixuan.cc/L6XxDFdx
+   来源: 里斯本大学的G. Pontes Luz等人提出了一种基于强化学习的的HEMS优化系统
+
+471. https://s.caixuan.cc/Lz3878Rr
+   来源: 里斯本大学的Nuno C. Santos等人研究了纤维蛋白原介导的红细胞-红细胞黏附数学模型
+
+472. https://s.caixuan.cc/LUPaVJ2z
+   来源: 里约热内卢联邦大学的G.M.C. Leite等人从电池运行和外部供应商调度的角度，提出了基于多目标强化学习的ERM问题解决方案
+
+473. https://s.caixuan.cc/LM6yYT0b
+   来源: 重庆医科大学第一附属医院黄文副主任团队采用核磁共振成像对髂静脉压迫综合征的血流动力学进行初步研究
+
+474. https://s.caixuan.cc/LHnrpDhr
+   来源: 重庆大学微电子与通信工程学院黄智勇教授提出基于双分支结构的两阶段融合生物医学图像分割模型
+
+475. https://s.caixuan.cc/LMYYWFiu
+   来源: 重庆理工大学的Zilin Liu等人提出了一种包含参数优化与深度强化学习方法相结合的瑞士卷式冷却带热管理冷却板优化算法
+
+476. https://s.caixuan.cc/LBiwskaU
+   来源: 长海医院的陆清声教授等人评估TEVAR在治疗B型主动脉夹层以及使用Castor单分支支架移植物对左锁骨下动脉进行血运重建的效果
+
+477. https://s.caixuan.cc/LXAr0d2W
+   来源: 阜外医院舒畅教授、罗明尧教授联合北京科技大学张雪岚教授等人结合数值模拟和体外实验建立EVAR后髂支闭塞的预测模型
+
+478. https://s.caixuan.cc/LEn9rAVY
+   来源: 阿伯丁大学的Wenbo Zhan基于药物在肿瘤内运输的对流_扩散_反应的数学模型研究抗血管生成药物与化疗药物联合治疗脑肿瘤的效果
+
+479. https://s.caixuan.cc/LLC3ne3L
+   来源: 阿伯丁大学的Wenbo Zhan等人从孔隙尺度流体动力学的角度探索不同级别脑肿瘤的组织渗透性
+
+480. https://s.caixuan.cc/L0OskixN
+   来源: 阿伯丁大学的Wenbo Zhan等人基于三维脑组织结构通过数学模型确定CED注药时导管放置方向对六种药物输送到各向异性组织的影响
+
+481. https://s.caixuan.cc/LpWPhxix
+   来源: 阿伯丁大学的Wenbo Zhan等人探讨脑肿瘤组织水力渗透性对在对流增强递送纳米颗粒封装化疗药物过程中药物转运和积累的影响
+
+482. https://s.caixuan.cc/LYQ8qUx5
+   来源: 阿卜杜勒阿齐兹国王大学的Abu-Hamdeh等人进行了脑动脉瘤内血流的瞬态模拟，以揭示血流速度对动脉瘤破裂风险的影响
+
+483. https://s.caixuan.cc/L2SECktS
+   来源: 阿德莱德大学Kaveh Moghadasi等人在Windkessel效应框架下研究颅外颈动脉瘤的非线性生物力学行为
+
+484. https://s.caixuan.cc/LugCzBiM
+   来源: 阿德莱德大学Wang等人基于Windkessel效应与充分发展入流速度的双向非线性流固耦合框架对腹主动脉瘤进行生物力学研究
+
+485. https://s.caixuan.cc/L7s0wLff
+   来源: 阿德莱德大学的Xiaochen Wang等人采用流固耦合（FSI）评估了几何特征对腹主动脉瘤破裂风险的影响
+
+486. https://s.caixuan.cc/L8R5gqau
+   来源: 韩国全北国立大学的Kwak等人探讨了血流动力学和几何形态因素与主动脉腔内动脉瘤修复术（EVAR）后血栓并发症风险的关系
+
+487. https://s.caixuan.cc/LNiMvHRF
+   来源: 韩国天主教大学的Chang Ho Jeon等人评价钝性胸主动脉损伤患者中主动脉覆膜支架的最佳尺寸考虑到低血容量状态下的直径减小
+
+488. https://s.caixuan.cc/LsCQNPwV
+   来源: 韩国蔚山大学医学院Dong Hyun Yang副教授提出用于主动脉夹层分割的Transformer和UNet级联缩放网络
+
+489. https://s.caixuan.cc/LQh27GOy
+   来源: 韩国高丽大学的Kwak团队提出基于多头注意机制组织病理学图像知识蒸馏的动量对比学习算法
+
+490. https://s.caixuan.cc/LvKQmfXR
+   来源: 首尔国立大学的Keunoh Lim等人提出了一种新的基于DRL的边界网格生成方法
+
+491. https://s.caixuan.cc/LnvN9XHt
+   来源: 首尔国立大学的Lee等人利用物理信息神经网络建立了具有van de Vusse反应的连续搅拌釜式反应器的代理模型
+
+492. https://s.caixuan.cc/LkN8aPl9
+   来源: 首都医科大学崔世磊团队研究血液粘度对颅内大动脉瘤血流动力学的影响
+
+493. https://s.caixuan.cc/LP59cg5l
+   来源: 香港中文大学的窦琪助理教授等人提出3DSAM-adapter进行肿瘤的快速分割
+
+494. https://s.caixuan.cc/LFqovuqH
+   来源: 香港城市大学机械工程学院刘军副教授团队提出用于异构联邦学习的预训练语言模型提取算法FedBM
+
+495. https://s.caixuan.cc/L5p6HALX
+   来源: 香港大学的Fung等人应用计算流体力学技术，通过数值求解连续性方程和时间相关的Navier-Stokes方程来模拟血液流动
+
+496. https://s.caixuan.cc/LLHaQ1LL
+   来源: 香港大学的Kam Yim Sze等人开展了脑动脉瘤计算流体力学、流固耦合与静态结构分析的比较研究
+
+497. https://s.caixuan.cc/LROKNR1B
+   来源: 香港理工大学的倪一清等人提出了一个辅助物理通知神经网络（A-PINN）的框架来解决非线性IDE的正问题和逆问题
+
+498. https://s.caixuan.cc/LeLyZVQm
+   来源: 香港理工大学的张晓革等人提出了一种基于深度强化学习的智能风险优化框架
+
+499. https://s.caixuan.cc/Lc5Mjva0
+   来源: 香港科技大学的Tim K.T.等人介绍了一种由深度强化学习（DRL）代理管理的实时增强当地城市风环境的新框架
+
+500. https://s.caixuan.cc/LBvuw8RM
+   来源: 香港科技大学（广州）的朱磊等人提出用于鲁棒3D医学图像分割的扩散嵌入式网络算法
+
+501. https://s.caixuan.cc/LrR9wszO
+   来源: 马哈沙拉堪大学的 Krit Chaimoon 等人提出并构建了一个适用于具有大非线性弹性变形的各向异性材料的广义超弹性模型
+
+502. https://s.caixuan.cc/LvpPqlZL
+   来源: 马德拉斯理工学院的B. J. Sudhir 等人使用多孔介质模型对出血性卒中患者特异性动脉瘤治疗方案进行了研究
+
+503. https://s.caixuan.cc/LbhOPa8p
+   来源: 马斯特里赫特大学医学中心Ramaekers等人用相差磁共振和计算流体动力学分析升主动脉瘤的血流模式
+
+504. https://s.caixuan.cc/L492bMTv
+   来源: 马来亚大学Einly Lim等人使用CFD方法预测Stanford B型主动脉夹层中血栓形成
+
+505. https://s.caixuan.cc/LZNGiHWk
+   来源: 马萨诸塞大学的Evgenii Kliuchnikov等人将纤维材料网络的强度、变形性、损伤和断裂韧性应用到纤维蛋白凝块中
+
+506. https://s.caixuan.cc/L8H8kKq2
+   来源: 高威神经科技中心的Ray McCarthy等人探讨了 r-tPA 溶栓治疗对血栓力学性能的影响
+
+507. https://s.caixuan.cc/LDIePRZQ
+   来源: 魏玛包豪斯大学的Jahed Naghipoor等人对冠状动脉中植入的支架局部输送治疗药物的情况进行了数学建模和数值模拟
+
+508. https://s.caixuan.cc/LIWiUnk8
+   来源: 鹿特丹大学医学中心的de Maat等人基于实验量化了纤维蛋白的纤维密度、孔径、纤维厚度以及在低应变和高应变下的整体刚度
+
+509. https://s.caixuan.cc/Lt3bebJU
+   来源: 麦吉尔大学的Jianyu Li等人从疲劳阈值和速率依赖性断裂韧性的角度来表征其断裂特性
+
+510. https://s.caixuan.cc/LunrkzLy
+   来源: 麦吉尔大学的Jianyu Li等人综合实验计算方法全面研究牛血凝块的断裂行为
+
+511. https://s.caixuan.cc/LnpVzGRQ
+   来源: 麦考瑞大学的Abdolvahab等人提出了一种基于深度强化学习和网格变形集成的微通道内单针翅形状优化方法
+
+512. https://s.caixuan.cc/Lo5V473g
+   来源: 麦考瑞大学的Ravanji等人采用了深度人工神经网络和强化学习与计算流体动力学求解器结合的方法优化微通道中的多个针翅形状
+
+513. https://s.caixuan.cc/LCZBJvik
+   来源: 麻省理工学院的Elazer R.Edelman等人应用计算流体力学和传质耦合模型预测了单一和重叠支柱DES的药物沉积
+
+514. https://s.caixuan.cc/LNAivwpQ
+   来源: 麻省理工学院的Farhad Rikhtegar等人结合了体外计算机断层扫描和流动传质计算模型研究血流动力学和药物沉积
+
+515. https://s.caixuan.cc/LlTGUBAz
+   来源: 麻省理工学院的Lu Lu等人回顾物理信息神经网络（PINN）并提出DeepXDE库
+
+516. https://s.caixuan.cc/LrDpTm23
+   来源: 麻省理工学院的LU LU等人提出了一种新的深度学习方法，具有硬约束的物理信息神经网络（hPINNs）用于解决拓扑优化
+
+517. https://s.caixuan.cc/LAYcGaIz
+   来源: 麻省理工学院的Vijaya B. Kolachalama研究管腔流量变化对动脉药物沉积和分布的重要性

@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAGFlow + Qwen 智能问答系统 v2.0</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: calc(100vh - 40px);
+        }
+
+        .left-panel, .right-panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            overflow-y: auto;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* 优化滚动条样式 */
+            scrollbar-width: thin;
+            scrollbar-color: #667eea #f1f1f1;
+        }
+
+        /* 为主面板添加滚动条样式 */
+        .left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .left-panel::-webkit-scrollbar-track, .right-panel::-webkit-scrollbar-track {
+            background: rgba(241, 241, 241, 0.5);
+            border-radius: 4px;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb, .right-panel::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.6);
+            border-radius: 4px;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb:hover, .right-panel::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.8);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .version-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .status-bar {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(222, 226, 230, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .status-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.online {
+            background: #28a745;
+            box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+        }
+
+        .status-dot.offline {
+            background: #dc3545;
+            box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* 为输入框添加更好的视觉反馈 */
+        .form-input, .form-textarea, .form-select {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-input:hover, .form-textarea:hover, .form-select:hover {
+            border-color: #8ca2ea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+        }
+
+        /* 为参数输入框添加特殊样式指示其被智能优化 */
+        .param-optimized {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%) !important;
+            border-color: #28a745 !important;
+            animation: optimized-glow 2s ease-in-out;
+        }
+
+        @keyframes optimized-glow {
+            0%, 100% { box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1); }
+            50% { box-shadow: 0 0 0 6px rgba(40, 167, 69, 0.2); }
+        }
+
+        /* 提示词管理样式 */
+        .prompt-management {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .prompt-selector-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .prompt-selector-container select {
+            flex: 1;
+            background: white;
+        }
+
+        .btn-small {
+            padding: 10px 16px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            border-radius: 10px;
+        }
+
+        .prompt-preview {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 10px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .prompt-preview-text {
+            color: #666;
+            font-style: italic;
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .advanced-options {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .advanced-toggle {
+            width: 100%;
+            padding: 16px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .advanced-toggle:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .advanced-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .advanced-content.show {
+            max-height: 800px;
+            padding: 20px;
+            overflow-y: auto;
+            /* 添加自定义滚动条样式 */
+            scrollbar-width: thin;
+            scrollbar-color: #667eea #f1f1f1;
+        }
+
+        /* Webkit浏览器滚动条样式 */
+        .advanced-content.show::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .advanced-content.show::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .advanced-content.show::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 3px;
+        }
+
+        .advanced-content.show::-webkit-scrollbar-thumb:hover {
+            background: #5a6fd8;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 12px;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+            text-transform: none;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
+        }
+
+        .btn-debug {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #212529;
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 流式输出光标动画 */
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .result-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 4px;
+            margin-bottom: 20px;
+            gap: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .answer-content {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        /* 专门处理链接显示的样式 */
+        .answer-text {
+            line-height: 1.8;
+            color: #333;
+            font-size: 15px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .answer-text a {
+            color: #667eea;
+            text-decoration: underline;
+            word-break: break-all;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .answer-text a:hover {
+            color: #5a6fd8;
+            background-color: rgba(102, 126, 234, 0.1);
+            border-radius: 4px;
+            padding: 2px 4px;
+            margin: -2px -4px;
+        }
+
+        /* 长链接显示优化 */
+        .long-link {
+            word-break: break-all;
+            overflow-wrap: anywhere;
+            hyphens: auto;
+            line-height: 1.6;
+            padding: 4px 8px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+            margin: 8px 0;
+            display: block;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+        }
+
+        /* ===========================================
+           人物主页链接专属样式 - 美观优化
+           =========================================== */
+        
+        /* 人物链接容器 */
+        .person-links-container {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .person-links-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.15);
+        }
+        
+        /* 人物链接标题区域 */
+        .person-links-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .person-links-icon {
+            font-size: 24px;
+            animation: bounce 2s infinite;
+        }
+        
+        .person-links-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .person-links-count {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        
+        /* 人物链接列表 */
+        .person-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        /* 单个人物链接项 */
+        .person-link-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .person-link-item:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(102, 126, 234, 0.3);
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.1);
+        }
+        
+        /* 人物信息区域 */
+        .person-link-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+        
+        .person-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2px;
+        }
+        
+        .person-domain {
+            font-size: 12px;
+            color: #666;
+            padding: 2px 8px;
+            background: #f1f3f4;
+            border-radius: 12px;
+            display: inline-block;
+            font-family: 'Consolas', 'Monaco', monospace;
+            max-width: fit-content;
+        }
+        
+        /* 人物链接按钮 */
+        .person-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .person-link-btn:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .person-link-btn:active {
+            transform: translateY(0);
+        }
+        
+        .person-link-icon {
+            font-size: 16px;
+            animation: pulse 2s infinite;
+        }
+        
+        /* 动画效果 */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-5px);
+            }
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* 已移除基于URL关键词的样式选择器，统一使用 .enhanced-person-link 类 */
+        
+        /* 针对人物主页链接的特殊标识 */
+        .answer-text strong:contains("相关人物") {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 18px;
+        }
+        
+        /* Enhanced Person Link 样式 (JavaScript动态添加) */
+        .enhanced-person-link {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            color: white !important;
+            text-decoration: none !important;
+            padding: 10px 20px !important;
+            border-radius: 30px !important;
+            font-weight: 600 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            margin: 6px 4px !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+            font-size: 14px !important;
+            border: none !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        
+        .enhanced-person-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .enhanced-person-link:hover::before {
+            left: 100%;
+        }
+        
+        .enhanced-person-link:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+            color: white !important;
+            text-decoration: none !important;
+        }
+        
+        .enhanced-person-link:active {
+            transform: translateY(-1px) scale(1.02) !important;
+        }
+        
+        .person-link-icon {
+            font-size: 18px !important;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+            animation: gentle-pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+        
+        /* 移除重复的Person Homepage Link样式，统一使用enhanced-person-link */
+        
+        /* 优化人物相关文本的显示 */
+        .answer-text hr + p strong:first-child,
+        .answer-text hr + strong {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 16px;
+            margin-right: 8px;
+        }
+        
+        /* 人物链接专属分隔线样式 */
+        .answer-text hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .answer-text hr::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        /* 移动端人物链接优化 */
+        @media (max-width: 768px) {
+            .person-links-container {
+                padding: 15px;
+                margin: 15px 0;
+            }
+            
+            .person-link-item {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            
+            .person-link-info {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .person-link-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 12px 20px;
+            }
+            
+            .person-domain {
+                max-width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+        
+        /* 超小屏幕人物链接优化 */
+        @media (max-width: 480px) {
+            .person-links-header {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            
+            .person-links-count {
+                margin-left: 0;
+            }
+            
+            .person-name {
+                font-size: 14px;
+            }
+            
+            .person-domain {
+                font-size: 11px;
+            }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* 提示词管理弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 35px;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close {
+            color: white;
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: opacity 0.3s;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 35px;
+        }
+
+        .template-list {
+            margin-bottom: 30px;
+        }
+
+        .template-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid rgba(222, 226, 230, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .template-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .template-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .template-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .template-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .template-content {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .template-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-small-action {
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .btn-edit {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+            color: #212529;
+        }
+
+        .btn-delete {
+            background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+            color: white;
+        }
+
+        .btn-edit:hover, .btn-delete:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .template-form {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 25px;
+        }
+
+        .template-form h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .template-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: help;
+        }
+
+        .tooltip::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .tooltip:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .main-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                height: auto;
+                max-width: 100%;
+            }
+            
+            .left-panel, .right-panel {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            /* 移动端高级选项优化 */
+            .advanced-content.show {
+                max-height: 600px; /* 移动端减小高度 */
+            }
+            
+            /* 移动端智能检索状态优化 */
+            #smartRetrievalStatus .btn {
+                font-size: 12px;
+                padding: 8px 12px;
+                margin: 2px;
+            }
+            
+            /* 移动端按钮优化 */
+            .btn {
+                margin-right: 8px;
+                margin-bottom: 8px;
+                padding: 12px 20px;
+                font-size: 13px;
+            }
+            
+            /* 移动端状态栏优化 */
+            .status-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            /* 移动端链接显示优化 */
+            .long-link {
+                font-size: 12px;
+                padding: 8px;
+                margin: 10px 0;
+                word-break: break-all;
+                overflow-wrap: anywhere;
+            }
+            
+            .answer-text {
+                font-size: 14px;
+                line-height: 1.6;
+            }
+            
+            .answer-text a {
+                word-break: break-all;
+                line-height: 1.4;
+            }
+            
+            /* 移动端提示词选择器优化 */
+            .prompt-selector-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .prompt-selector-container select {
+                margin-bottom: 8px;
+            }
+        }
+
+        /* 超小屏幕优化 */
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 0;
+            }
+            
+            .left-panel, .right-panel {
+                padding: 15px;
+                margin: 5px;
+                border-radius: 12px;
+            }
+            
+            .title {
+                font-size: 1.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            /* 超小屏幕按钮优化 */
+            .btn {
+                width: 100%;
+                margin: 4px 0;
+                text-align: center;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- 左侧面板：问答界面 -->
+        <div class="left-panel">
+            <div class="header">
+                <h1 class="title">RAGFlow + Qwen</h1>
+                <p class="subtitle">智能问答系统</p>
+                <span class="version-badge">v2.0 增强版</span>
+            </div>
+
+            <div class="status-bar">
+                <div class="status-row">
+                    <div class="status-indicator">
+                        <div class="status-dot offline" id="statusDot"></div>
+                        <span id="statusText">检查服务状态中...</span>
+                    </div>
+                    <span id="responseTime" class="tooltip" data-tooltip="服务响应时间">--ms</span>
+                </div>
+            </div>
+
+            <form id="qaForm">
+                <div class="form-group">
+                    <label class="form-label" for="question">🤔 请输入您的问题：</label>
+                    <textarea 
+                        id="question" 
+                        name="question" 
+                        class="form-textarea" 
+                        placeholder="例如：什么是特征值？RAGFlow有什么优势？请详细解释..."
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- 提示词管理区域 -->
+                <div class="prompt-management">
+                    <div class="form-group">
+                        <label class="form-label">🎯 选择提示词模板：</label>
+                        <div class="prompt-selector-container">
+                            <select id="prompt_template" class="form-select">
+                                <option value="default">默认模板</option>
+                                <option value="detailed">详细回答</option>
+                                <option value="concise">简洁回答</option>
+                                <option value="analytical">分析回答</option>
+                            </select>
+                            <button type="button" class="btn btn-small btn-secondary" onclick="showPromptManager()">
+                                ⚙️ 管理模板
+                            </button>
+                        </div>
+                        <div class="prompt-preview" id="promptPreview">
+                            <small class="prompt-preview-text">请根据以下资料回答用户问题：</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="advanced-options">
+                    <button type="button" class="advanced-toggle" onclick="toggleAdvanced()">
+                        <span>⚙️</span>
+                        <span id="advancedToggleText">高级选项</span>
+                        <span style="margin-left: auto;">▼</span>
+                    </button>
+                    <div class="advanced-content" id="advancedContent">
+                        <div class="form-group">
+                            <label class="form-label tooltip" data-tooltip="数据集ID，多个用逗号分隔">📊 数据集ID：</label>
+                            <div style="display: flex; gap: 8px; align-items: center;">
+                                <input type="text" id="dataset_ids" class="form-input" 
+                                       value="" placeholder="加载中..." readonly>
+                                <button type="button" class="btn btn-small btn-secondary" onclick="refreshConfig()" title="刷新配置">
+                                    🔄
+                                </button>
+                                <button type="button" class="btn btn-small btn-secondary" onclick="editDatasetIds()" title="编辑数据集ID">
+                                    ✏️
+                                </button>
+                            </div>
+                            <small id="dataset_status" style="color: #666; font-size: 12px; margin-top: 4px; display: block;">
+                                💡 从.env文件自动加载，点击刷新按钮重新加载配置
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label tooltip" data-tooltip="相似度阈值，越高越严格">🎯 相似度阈值：</label>
+                            <input type="number" id="similarity_threshold" class="form-input" 
+                                   value="0.05" min="0" max="1" step="0.01">
+                            <small id="threshold_hint" style="color: #666; font-size: 12px; margin-top: 4px; display: block;">
+                                💡 智能检索将根据问题类型自动优化此参数
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label tooltip" data-tooltip="检索返回的文档数量">📚 检索文档数：</label>
+                            <input type="number" id="top_k" class="form-input" 
+                                   value="15" min="1" max="100">
+                            <small id="topk_hint" style="color: #666; font-size: 12px; margin-top: 4px; display: block;">
+                                💡 语义问题将自动增加到20个候选
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label tooltip" data-tooltip="向量相似度权重">⚖️ 向量权重：</label>
+                            <input type="number" id="vector_similarity_weight" class="form-input" 
+                                   value="0.7" min="0" max="1" step="0.1">
+                            <small id="weight_hint" style="color: #666; font-size: 12px; margin-top: 4px; display: block;">
+                                💡 行为查询将自动调整到0.8
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label tooltip" data-tooltip="控制回答的创造性，越高越有创意">🌡️ Qwen温度：</label>
+                            <input type="number" id="temperature" class="form-input" 
+                                   value="0.7" min="0" max="2" step="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label tooltip" data-tooltip="Qwen最大输出token数">🔢 最大Token：</label>
+                            <input type="number" id="max_tokens" class="form-input" 
+                                   value="2000" min="100" max="4000" step="100">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 智能检索状态显示 -->
+                <div id="smartRetrievalStatus" class="prompt-management" style="display: none;">
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color: #667eea;">🤖 智能检索状态</strong>
+                        <div style="float: right;">
+                            <button type="button" class="btn btn-small btn-secondary" onclick="applyOptimizedParams()" id="applyParamsBtn" title="将优化参数应用到配置" style="display: none;">
+                                ⚡ 应用优化
+                            </button>
+                            <button type="button" class="btn btn-small btn-secondary" onclick="toggleSmartStatus()">
+                                📊 详情
+                            </button>
+                        </div>
+                    </div>
+                    <div id="smartStatusDetails" style="display: none;">
+                        <div style="background: white; border-radius: 8px; padding: 15px; font-size: 13px;">
+                            <div><strong>问题类型:</strong> <span id="questionType">-</span></div>
+                            <div><strong>优化阈值:</strong> <span id="optimizedThreshold">-</span> 
+                                <span id="thresholdChange" style="color: #28a745; font-size: 11px;"></span>
+                            </div>
+                            <div><strong>优化TopK:</strong> <span id="optimizedTopK">-</span>
+                                <span id="topkChange" style="color: #28a745; font-size: 11px;"></span>
+                            </div>
+                            <div><strong>优化权重:</strong> <span id="optimizedWeight">-</span>
+                                <span id="weightChange" style="color: #28a745; font-size: 11px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="smartStatusSummary">
+                        <small id="smartStatusText" style="color: #666;">等待问答以显示智能优化状态...</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        🚀 开始问答
+                    </button>
+                    <button type="button" class="btn btn-primary" id="streamBtn" onclick="startStreamChat()">
+                        ⚡ 流式问答
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn" onclick="cancelStreamChat()" style="display: none;">
+                        ⏸️ 暂停回答
+                    </button>
+                    <button type="button" class="btn btn-debug" id="debugBtn" onclick="debugRagflow()">
+                        🔍 调试RAGFlow
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="testDataset()">
+                        🧪 测试数据集
+                    </button>
+                </div>
+            </form>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <span id="loadingText">AI正在思考中...</span>
+            </div>
+        </div>
+
+        <!-- 右侧面板：结果展示 -->
+        <div class="right-panel">
+            <div class="result-section">
+                <div class="result-tabs">
+                    <button class="tab-btn active" onclick="switchTab('answer', event)">💬 AI回答</button>
+                    <button class="tab-btn" onclick="switchTab('debug', event)">🔧 调试信息</button>
+                    <button class="tab-btn" onclick="switchTab('stats', event)">📊 性能统计</button>
+                </div>
+
+                <!-- AI回答标签页 -->
+                <div id="answerTab" class="tab-content active">
+                    <div id="answerContent" class="answer-content">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🤖</div>
+                            <p>请在左侧输入问题开始对话</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 调试信息标签页 -->
+                <div id="debugTab" class="tab-content">
+                    <div id="debugContent" class="answer-content">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">🔧</div>
+                            <p>暂无调试信息</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 性能统计标签页 -->
+                <div id="statsTab" class="tab-content">
+                    <div id="performanceStats" class="answer-content">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">📊</div>
+                            <p>暂无性能统计数据</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示词管理弹窗 -->
+    <div id="promptModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closePromptManager()">&times;</span>
+                <h2 class="modal-title">🎯 提示词模板管理</h2>
+            </div>
+            <div class="modal-body">
+                <div class="template-list" id="templateList">
+                    <!-- 模板列表将通过JavaScript动态生成 -->
+                </div>
+                
+                <div class="template-form">
+                    <h3>📝 添加新模板</h3>
+                    <form id="newTemplateForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">模板名称：</label>
+                                <input type="text" id="newTemplateName" class="form-input" placeholder="例如：专业解答" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">描述：</label>
+                                <input type="text" id="newTemplateDescription" class="form-input" placeholder="模板用途描述">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">模板内容：</label>
+                            <textarea id="newTemplateContent" class="form-textarea" rows="3" 
+                                placeholder="例如：请作为专业顾问，根据以下资料详细回答用户问题，并提供实用建议：" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">💾 保存模板</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isAdvancedVisible = false;
+        let promptTemplates = {};
+        
+        // 流式请求控制
+        let currentStreamController = null;
+        let isStreamActive = false;
+        let streamTimeoutMs = 320000; // 默认320秒，将从后端动态获取
+        
+        // 问题分析控制
+        let analysisTimeout = null;
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('页面加载完成，初始化系统...');
+            
+            // 检查服务健康状态
+            await checkHealth();
+            
+            // 加载配置信息
+            await loadConfig();
+            
+            // 加载后端超时配置
+            await loadBackendTimeout();
+            
+            // 加载提示词模板
+            await loadPromptTemplates();
+            
+            // 监听提示词模板选择变化
+            document.getElementById('prompt_template').addEventListener('change', updatePromptPreview);
+            
+            // 监听问题输入变化，实时分析
+            document.getElementById('question').addEventListener('input', function(e) {
+                const question = e.target.value.trim();
+                
+                // 清除之前的定时器
+                clearTimeout(analysisTimeout);
+                
+                if (question.length >= 3) {
+                    // 延迟500ms后分析，避免频繁请求
+                    analysisTimeout = setTimeout(async () => {
+                        await analyzeQuestionType(question);
+                    }, 500);
+                } else {
+                    // 问题太短时隐藏智能检索状态
+                    document.getElementById('smartRetrievalStatus').style.display = 'none';
+                }
+            });
+            
+            // 自动聚焦到问题输入框
+            document.getElementById('question').focus();
+        });
+
+        // 健康检查
+        async function checkHealth() {
+            try {
+                updateStatus('offline', '检查服务状态中...');
+                const response = await fetch('/health');
+                const data = await response.json();
+                
+                if (data.status === 'healthy') {
+                    updateStatus('online', '服务在线');
+                    document.getElementById('responseTime').textContent = Math.round(data.response_time * 1000) + 'ms';
+                } else {
+                    updateStatus('offline', '服务异常');
+                }
+            } catch (error) {
+                updateStatus('offline', '连接失败');
+                console.error('健康检查失败:', error);
+            }
+        }
+
+        // 更新状态显示
+        function updateStatus(status, text) {
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+            
+            statusDot.className = `status-dot ${status}`;
+            statusText.textContent = text;
+        }
+
+        // 加载后端超时配置
+        async function loadBackendTimeout() {
+            try {
+                const response = await fetch('/config');
+                const config = await response.json();
+                
+                // 获取Qwen流式超时配置（秒转毫秒，并增加20秒缓冲）
+                const qwenStreamTimeout = config.qwen?.stream_timeout || config.qwen?.timeout || 300;
+                
+                // 使用流式超时 + 20秒缓冲作为前端超时
+                streamTimeoutMs = (qwenStreamTimeout + 20) * 1000;
+                
+                console.log(`✅ 动态加载超时配置: ${qwenStreamTimeout}s (后端) + 20s (缓冲) = ${streamTimeoutMs/1000}s (前端)`);
+            } catch (error) {
+                console.warn('⚠️ 无法加载后端超时配置，使用默认值:', error);
+                streamTimeoutMs = 320000; // 默认320秒
+            }
+        }
+
+        // 配置管理相关函数
+        async function loadConfig() {
+            try {
+                const response = await fetch('/config');
+                const config = await response.json();
+                
+                // 更新数据集ID显示
+                const datasetIdsInput = document.getElementById('dataset_ids');
+                const datasetStatus = document.getElementById('dataset_status');
+                
+                if (config.datasets && config.datasets.default_dataset_ids) {
+                    datasetIdsInput.value = config.datasets.default_dataset_ids.join(',');
+                    datasetIdsInput.placeholder = '';
+                    datasetStatus.innerHTML = `💡 已加载${config.datasets.dataset_count}个数据集ID (最后更新: ${formatTime(config.last_reload_time)})`;
+                    datasetStatus.style.color = '#28a745';
+                } else {
+                    datasetIdsInput.value = '';
+                    datasetIdsInput.placeholder = '未配置数据集ID';
+                    datasetStatus.innerHTML = '⚠️ 未配置数据集ID，请检查.env文件';
+                    datasetStatus.style.color = '#dc3545';
+                }
+                
+                console.log('配置加载成功:', config);
+            } catch (error) {
+                console.error('加载配置失败:', error);
+                const datasetStatus = document.getElementById('dataset_status');
+                datasetStatus.innerHTML = '❌ 配置加载失败，请检查服务状态';
+                datasetStatus.style.color = '#dc3545';
+            }
+        }
+
+        async function refreshConfig() {
+            try {
+                const refreshBtn = event.target;
+                const originalText = refreshBtn.textContent;
+                refreshBtn.textContent = '⏳';
+                refreshBtn.disabled = true;
+                
+                const response = await fetch('/config/reload', {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    // 重新加载配置显示
+                    await loadConfig();
+                    
+                    // 显示刷新结果
+                    const datasetStatus = document.getElementById('dataset_status');
+                    if (result.changes_detected) {
+                        datasetStatus.innerHTML = `✅ 配置已刷新！检测到数据集ID变更: ${result.old_dataset_ids.join(',')} → ${result.new_dataset_ids.join(',')}`;
+                        datasetStatus.style.color = '#28a745';
+                        
+                        // 显示提示
+                        alert(`配置刷新成功！\n数据集ID已更新为: ${result.new_dataset_ids.join(', ')}`);
+                    } else {
+                        datasetStatus.innerHTML = `✅ 配置已刷新，未检测到变更 (${formatTime(result.reload_time)})`;
+                        datasetStatus.style.color = '#17a2b8';
+                    }
+                } else {
+                    alert('刷新配置失败: ' + result.detail);
+                }
+                
+                refreshBtn.textContent = originalText;
+                refreshBtn.disabled = false;
+            } catch (error) {
+                console.error('刷新配置失败:', error);
+                alert('刷新配置失败: ' + error.message);
+                
+                const refreshBtn = event.target;
+                refreshBtn.textContent = '🔄';
+                refreshBtn.disabled = false;
+            }
+        }
+
+        async function editDatasetIds() {
+            try {
+                const currentIds = document.getElementById('dataset_ids').value;
+                const newIds = prompt('请输入数据集ID (多个ID用逗号分隔):', currentIds);
+                
+                if (newIds !== null && newIds !== currentIds) {
+                    const persistChoice = confirm('是否将变更保存到.env文件中？\n\n点击"确定"保存到.env文件（永久生效）\n点击"取消"仅在当前会话中生效');
+                    
+                    const response = await fetch('/config/datasets', {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            dataset_ids: newIds.split(',').map(id => id.trim()).filter(id => id),
+                            persist: persistChoice
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                        // 更新显示
+                        await loadConfig();
+                        
+                        // 显示成功消息
+                        let message = `数据集ID更新成功！\n`;
+                        message += `新的ID: ${result.new_dataset_ids.join(', ')}\n`;
+                        if (result.persisted) {
+                            message += '\n✅ 已保存到.env文件，重启后仍然有效';
+                        } else if (persistChoice) {
+                            message += '\n⚠️ 保存到.env文件失败，仅在当前会话有效';
+                        } else {
+                            message += '\n💡 仅在当前会话有效，重启后将恢复原配置';
+                        }
+                        
+                        alert(message);
+                    } else {
+                        alert('更新失败: ' + result.detail);
+                    }
+                }
+            } catch (error) {
+                console.error('编辑数据集ID失败:', error);
+                alert('编辑失败: ' + error.message);
+            }
+        }
+
+        function formatTime(timeString) {
+            if (!timeString) return '未知';
+            try {
+                const date = new Date(timeString);
+                return date.toLocaleString('zh-CN');
+            } catch (e) {
+                return timeString;
+            }
+        }
+
+        // 切换高级选项
+        function toggleAdvanced() {
+            const content = document.getElementById('advancedContent');
+            const toggleText = document.getElementById('advancedToggleText');
+            const arrow = document.querySelector('.advanced-toggle span:last-child');
+            
+            isAdvancedVisible = !isAdvancedVisible;
+            
+            if (isAdvancedVisible) {
+                content.classList.add('show');
+                toggleText.textContent = '收起高级选项';
+                arrow.textContent = '▲';
+            } else {
+                content.classList.remove('show');
+                toggleText.textContent = '高级选项';
+                arrow.textContent = '▼';
+            }
+        }
+
+        // 切换标签页
+        function switchTab(tabName, event) {
+            // 移除所有活跃状态
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // 激活选中的标签页
+            if (event && event.target) {
+                event.target.classList.add('active');
+            } else {
+                // 如果没有event，通过按钮文本找到对应的按钮
+                const buttons = document.querySelectorAll('.tab-btn');
+                buttons.forEach(btn => {
+                    if (btn.onclick.toString().includes(tabName)) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            document.getElementById(tabName + 'Tab').classList.add('active');
+        }
+
+        // 智能格式化答案中的链接（修复版 - 统一个人主页链接样式）
+        function formatAnswerWithLinks(answer) {
+            if (!answer) return '';
+            
+            // 首先处理Markdown格式的个人主页链接，这是主要的个人主页链接格式
+            // 匹配格式：[点击访问{姓名}的个人主页](URL)
+            const personHomepageMarkdownRegex = /\[点击访问(.+?)的个人主页\]\(([^)]+)\)/g;
+            
+            // 转义HTML特殊字符
+            let processedAnswer = answer
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+            
+            // 优先处理Markdown格式的个人主页链接
+            processedAnswer = processedAnswer.replace(personHomepageMarkdownRegex, function(match, personName, url) {
+                const cleanUrl = url.trim();
+                const cleanName = personName.trim();
+                // 标记为个人主页链接，便于后续统一美化处理
+                return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" data-person-link="true" data-person-name="${cleanName}">点击访问${cleanName}的个人主页</a>`;
+            });
+            
+            // 处理换行符
+            processedAnswer = processedAnswer.replace(/\n/g, '<br>');
+            
+            // 处理其他普通URL链接（不包括个人主页链接）
+            const urlRegex = /https?:\/\/[^\s<>"\u4e00-\u9fa5()，。！？、；：'"'"》《）（\]】\[【]+/gi;
+            processedAnswer = processedAnswer.replace(urlRegex, function(url) {
+                const cleanUrl = url.trim();
+                
+                // 跳过已经被处理的链接（通过检查前后文是否已经是<a>标签）
+                const beforeUrl = processedAnswer.substring(0, processedAnswer.indexOf(url));
+                const afterUrl = processedAnswer.substring(processedAnswer.indexOf(url) + url.length);
+                if (beforeUrl.endsWith('href="') || afterUrl.startsWith('">')) {
+                    return url; // 已经是链接的一部分，跳过处理
+                }
+                
+                if (cleanUrl.length > 50) {
+                    // 长链接处理
+                    let displayUrl;
+                    if (cleanUrl.length > 80) {
+                        const domain = cleanUrl.match(/https?:\/\/([^\/]+)/);
+                        const domainPart = domain ? domain[1] : cleanUrl.substring(8, 30);
+                        displayUrl = `${domainPart}...`;
+                    } else {
+                        displayUrl = cleanUrl.substring(0, 50) + '...';
+                    }
+                    
+                    return `<div class="long-link">
+                        <a href="${cleanUrl}" target="_blank" rel="noopener noreferrer" title="点击访问: ${cleanUrl}">
+                            🔗 ${displayUrl}
+                        </a>
+                        <div style="font-size: 11px; color: #888; margin-top: 2px;">
+                            完整链接: ${cleanUrl.length > 100 ? cleanUrl.substring(0, 100) + '...' : cleanUrl}
+                        </div>
+                    </div>`;
+                } else {
+                    // 普通短链接
+                    return `<a href="${cleanUrl}" target="_blank" rel="noopener noreferrer">${cleanUrl}</a>`;
+                }
+            });
+            
+            return processedAnswer;
+        }
+
+        // 专门处理人物主页链接的美化函数（统一版）
+        function enhancePersonLinks(answerElement) {
+            if (!answerElement) return;
+            
+            // 只查找被标记为个人主页链接的元素
+            const personLinks = answerElement.querySelectorAll('a[data-person-link="true"]');
+            
+            // 调试信息：输出找到的人物链接
+            console.log(`发现 ${personLinks.length} 个人物主页链接:`, 
+                Array.from(personLinks).map(link => ({
+                    href: link.href,
+                    text: link.textContent.substring(0, 50),
+                    personName: link.dataset.personName || '未知'
+                }))
+            );
+            
+            personLinks.forEach(link => {
+                // 确保所有人物链接都有统一的样式类
+                link.classList.add('enhanced-person-link');
+                
+                // 从data属性获取人物姓名
+                let personName = link.dataset.personName || '';
+                
+                // 如果没有data-person-name属性，从链接文本中提取
+                if (!personName) {
+                    const linkText = link.textContent.trim();
+                    if (linkText.includes('点击访问') && linkText.includes('的个人主页')) {
+                        const nameMatch = linkText.match(/点击访问(.+?)的个人主页/);
+                        personName = nameMatch ? nameMatch[1].trim() : '某教师';
+                    } else {
+                        personName = '查看详情';
+                    }
+                }
+                
+                // 统一设置链接显示格式
+                link.innerHTML = `<span class="person-link-icon">👤</span>${personName}的主页`;
+                
+                // 确保链接样式正确
+                link.style.textDecoration = 'none';
+                
+                // 添加悬停效果（避免重复添加事件）
+                if (!link.hasAttribute('data-enhanced')) {
+                    link.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-2px) scale(1.05)';
+                    });
+                    
+                    link.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    });
+                    
+                    link.setAttribute('data-enhanced', 'true');
+                }
+            });
+        }
+
+        // 显示/隐藏加载状态
+        function showLoading(show, text = 'AI正在思考中...', isStream = false) {
+            const loading = document.getElementById('loading');
+            const loadingText = document.getElementById('loadingText');
+            const submitBtn = document.getElementById('submitBtn');
+            const streamBtn = document.getElementById('streamBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const debugBtn = document.getElementById('debugBtn');
+            
+            if (show) {
+                loading.style.display = 'block';
+                loadingText.textContent = text;
+                submitBtn.disabled = true;
+                streamBtn.disabled = true;
+                debugBtn.disabled = true;
+                
+                // 根据是否为流式请求显示/隐藏取消按钮
+                if (isStream) {
+                    cancelBtn.style.display = 'inline-block';
+                    streamBtn.textContent = '⚡ 生成中...';
+                } else {
+                    cancelBtn.style.display = 'none';
+                    submitBtn.textContent = '🤔 思考中...';
+                }
+            } else {
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+                streamBtn.disabled = false;
+                debugBtn.disabled = false;
+                cancelBtn.style.display = 'none';
+                submitBtn.textContent = '🚀 开始问答';
+                streamBtn.textContent = '⚡ 流式问答';
+                
+                // 重置流式请求状态
+                isStreamActive = false;
+                currentStreamController = null;
+            }
+        }
+
+        // 显示答案
+        function showAnswer(data) {
+            const answerContent = document.getElementById('answerContent');
+            const debugContent = document.getElementById('debugContent');
+            const statsContent = document.getElementById('performanceStats');
+            
+            // 智能处理链接和文本
+            const processedAnswer = formatAnswerWithLinks(data.answer);
+            
+            // 显示AI回答
+            answerContent.innerHTML = `
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #667eea;">🤖 AI回答：</strong>
+                </div>
+                <div class="answer-text">
+                    ${processedAnswer}
+                </div>
+                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; font-size: 13px; color: #666;">
+                    <div>📊 使用文档: ${data.ragflow_docs_count} 个</div>
+                    <div>🎯 提示词模板: ${data.prompt_template_used}</div>
+                    <div>⚡ 状态: ${data.ragflow_status}</div>
+                </div>
+            `;
+            
+            // 美化人物主页链接
+            const answerTextElement = answerContent.querySelector('.answer-text');
+            if (answerTextElement) {
+                enhancePersonLinks(answerTextElement);
+            }
+
+            // 显示调试信息和智能检索状态
+            if (data.debug_info) {
+                debugContent.innerHTML = `
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 12px;">
+${JSON.stringify(data.debug_info, null, 2)}
+                    </pre>
+                `;
+                
+                // 如果有智能检索信息，更新状态显示
+                if (data.debug_info.smart_retrieval) {
+                    const smartInfo = data.debug_info.smart_retrieval;
+                    updateSmartRetrievalStatus(smartInfo.question_type, smartInfo.optimized_params);
+                }
+            }
+
+            // 显示性能统计
+            if (data.performance_stats) {
+                const stats = data.performance_stats;
+                statsContent.innerHTML = `
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div style="text-align: center; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                            <div style="font-size: 24px; font-weight: bold; color: #667eea;">${(stats.total_time || 0).toFixed(2)}s</div>
+                            <div style="color: #666;">总耗时</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                            <div style="font-size: 24px; font-weight: bold; color: #28a745;">${(stats.ragflow_time || 0).toFixed(2)}s</div>
+                            <div style="color: #666;">RAGflow耗时</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                            <div style="font-size: 24px; font-weight: bold; color: #ffc107;">${(stats.qwen_time || 0).toFixed(2)}s</div>
+                            <div style="color: #666;">Qwen耗时</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: #f8f9fa; border-radius: 10px;">
+                            <div style="font-size: 24px; font-weight: bold; color: #17a2b8;">${data.ragflow_docs_count}</div>
+                            <div style="color: #666;">文档数量</div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 自动切换到答案标签页
+            switchTab('answer');
+        }
+
+        // 提示词管理相关函数
+        async function loadPromptTemplates() {
+            try {
+                const response = await fetch('/prompts');
+                const templates = await response.json();
+                
+                promptTemplates = {};
+                const select = document.getElementById('prompt_template');
+                select.innerHTML = '';
+                
+                templates.forEach(template => {
+                    promptTemplates[template.name] = template;
+                    const option = document.createElement('option');
+                    option.value = template.name;
+                    option.textContent = template.description || template.name;
+                    select.appendChild(option);
+                });
+                
+                updatePromptPreview();
+                console.log('提示词模板加载完成:', templates.length, '个模板');
+            } catch (error) {
+                console.error('加载提示词模板失败:', error);
+            }
+        }
+
+        function updatePromptPreview() {
+            const selectedTemplate = document.getElementById('prompt_template').value;
+            const previewText = document.querySelector('.prompt-preview-text');
+            
+            if (promptTemplates[selectedTemplate]) {
+                previewText.textContent = promptTemplates[selectedTemplate].template;
+            } else {
+                previewText.textContent = selectedTemplate;
+            }
+        }
+
+        async function showPromptManager() {
+            await loadPromptTemplates();
+            renderTemplateList();
+            document.getElementById('promptModal').style.display = 'block';
+        }
+
+        function closePromptManager() {
+            document.getElementById('promptModal').style.display = 'none';
+        }
+
+        function renderTemplateList() {
+            const templateList = document.getElementById('templateList');
+            templateList.innerHTML = '';
+            
+            Object.values(promptTemplates).forEach(template => {
+                const templateItem = document.createElement('div');
+                templateItem.className = 'template-item';
+                
+                const isDefault = ['default', 'detailed', 'concise', 'analytical'].includes(template.name);
+                
+                templateItem.innerHTML = `
+                    <div class="template-header">
+                        <span class="template-name">${template.name}</span>
+                        ${isDefault ? '<span class="template-badge">默认</span>' : ''}
+                    </div>
+                    <div class="template-description">${template.description || '暂无描述'}</div>
+                    <div class="template-content">${template.template}</div>
+                    <div class="template-actions">
+                        ${!isDefault ? `
+                            <button class="btn-small-action btn-edit" onclick="editTemplate('${template.name}')">✏️ 编辑</button>
+                            <button class="btn-small-action btn-delete" onclick="deleteTemplate('${template.name}')">🗑️ 删除</button>
+                        ` : ''}
+                    </div>
+                `;
+                
+                templateList.appendChild(templateItem);
+            });
+        }
+
+        async function editTemplate(templateName) {
+            const template = promptTemplates[templateName];
+            if (!template) return;
+            
+            const newTemplate = prompt('编辑模板内容:', template.template);
+            const newDescription = prompt('编辑模板描述:', template.description || '');
+            
+            if (newTemplate && newTemplate !== template.template) {
+                try {
+                    const response = await fetch(`/prompts/${templateName}`, {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            template: newTemplate,
+                            description: newDescription
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        await loadPromptTemplates();
+                        renderTemplateList();
+                        alert('模板更新成功！');
+                    } else {
+                        const error = await response.json();
+                        alert('更新失败: ' + error.detail);
+                    }
+                } catch (error) {
+                    alert('更新失败: ' + error.message);
+                }
+            }
+        }
+
+        async function deleteTemplate(templateName) {
+            if (confirm(`确定要删除模板 "${templateName}" 吗？`)) {
+                try {
+                    const response = await fetch(`/prompts/${templateName}`, {
+                        method: 'DELETE'
+                    });
+                    
+                    if (response.ok) {
+                        await loadPromptTemplates();
+                        renderTemplateList();
+                        alert('模板删除成功！');
+                    } else {
+                        const error = await response.json();
+                        alert('删除失败: ' + error.detail);
+                    }
+                } catch (error) {
+                    alert('删除失败: ' + error.message);
+                }
+            }
+        }
+
+        // 获取表单数据
+        function getFormData() {
+            const datasetIds = document.getElementById('dataset_ids').value.trim();
+            
+            return {
+                question: document.getElementById('question').value.trim(),
+                dataset_ids: datasetIds ? datasetIds.split(',').map(id => id.trim()) : [],
+                document_ids: [],
+                similarity_threshold: parseFloat(document.getElementById('similarity_threshold').value),
+                top_k: parseInt(document.getElementById('top_k').value),
+                vector_similarity_weight: parseFloat(document.getElementById('vector_similarity_weight').value),
+                temperature: parseFloat(document.getElementById('temperature').value),
+                max_tokens: parseInt(document.getElementById('max_tokens').value),
+                prompt_template: document.getElementById('prompt_template').value,
+                page_size: parseInt(document.getElementById('top_k').value) || 50,  // 使用top_k值或默认50
+                keyword: true,
+                highlight: true,
+                rerank_id: ""
+            };
+        }
+
+        // 表单提交处理
+        document.getElementById('qaForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = getFormData();
+            if (!formData.question) {
+                alert('请输入问题！');
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                const response = await fetch('/qa', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    showAnswer(data);
+                } else {
+                    throw new Error(data.detail || '请求失败');
+                }
+            } catch (error) {
+                alert('请求失败: ' + error.message);
+                console.error('QA请求失败:', error);
+            }
+
+            showLoading(false);
+        });
+
+        // 调试功能
+        async function debugRagflow() {
+            const formData = getFormData();
+            if (!formData.question) {
+                alert('请输入问题！');
+                return;
+            }
+
+            showLoading(true, '调试RAGFlow中...');
+
+            try {
+                const response = await fetch('/debug/ragflow', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+                
+                document.getElementById('debugContent').innerHTML = `
+                    <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 12px;">
+${JSON.stringify(data, null, 2)}
+                    </pre>
+                `;
+                
+                switchTab('debug');
+            } catch (error) {
+                alert('调试请求失败: ' + error.message);
+            }
+
+            showLoading(false);
+        }
+
+        // 测试数据集
+        async function testDataset() {
+            showLoading(true, '测试数据集中...');
+            
+            try {
+                const datasetId = document.getElementById('dataset_ids').value.trim().split(',')[0];
+                const response = await fetch(`/datasets/${datasetId}/test`);
+                const data = await response.json();
+                
+                alert(`数据集测试结果：\n状态：${data.status}\n文档数：${data.documents_found}\n响应时间：${data.response_time}ms`);
+            } catch (error) {
+                alert('测试失败: ' + error.message);
+            }
+            
+            showLoading(false);
+        }
+
+        // 处理新模板表单提交
+        document.getElementById('newTemplateForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('newTemplateName').value.trim();
+            const description = document.getElementById('newTemplateDescription').value.trim();
+            const template = document.getElementById('newTemplateContent').value.trim();
+            
+            if (!name || !template) {
+                alert('请填写模板名称和内容！');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/prompts', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: name,
+                        template: template,
+                        description: description
+                    })
+                });
+                
+                if (response.ok) {
+                    // 清空表单
+                    document.getElementById('newTemplateName').value = '';
+                    document.getElementById('newTemplateDescription').value = '';
+                    document.getElementById('newTemplateContent').value = '';
+                    
+                    await loadPromptTemplates();
+                    renderTemplateList();
+                    alert('模板创建成功！');
+                } else {
+                    const error = await response.json();
+                    alert('创建失败: ' + error.detail);
+                }
+            } catch (error) {
+                alert('创建失败: ' + error.message);
+            }
+        });
+
+        // 点击弹窗外部关闭弹窗
+        window.onclick = function(event) {
+            const modal = document.getElementById('promptModal');
+            if (event.target == modal) {
+                closePromptManager();
+            }
+        }
+
+        // 取消流式请求
+        function cancelStreamChat() {
+            if (currentStreamController && isStreamActive) {
+                try {
+                    currentStreamController.abort();
+                    console.log('用户取消了流式请求');
+                } catch (e) {
+                    console.warn('取消请求时出错:', e);
+                }
+                
+                // 显示取消信息
+                const streamAnswer = document.getElementById('streamAnswer');
+                const streamStatus = document.getElementById('streamStatus');
+                
+                if (streamAnswer) {
+                    streamAnswer.innerHTML = `
+                        <div style="color: #ffc107; padding: 15px; background: #fff3cd; border-radius: 8px; text-align: center;">
+                            ⏸️ <strong>已暂停回答</strong><br>
+                            <small style="margin-top: 8px; display: block;">您已主动暂停了AI回答生成</small>
+                        </div>
+                    `;
+                }
+                
+                if (streamStatus) {
+                    streamStatus.textContent = '已被用户暂停';
+                }
+                
+                showLoading(false);
+            }
+        }
+
+        // 分析问题类型
+        async function analyzeQuestionType(question) {
+            try {
+                const response = await fetch('/analyze_question', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({question: question})
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    updateSmartRetrievalStatus(data.question_type, data.optimized_params);
+                    
+                    // 更新状态面板显示描述
+                    const statusText = document.getElementById('smartStatusText');
+                    statusText.innerHTML += `<br><small>${data.optimization_description}</small>`;
+                    
+                    console.log('问题分析结果:', data);
+                } else {
+                    console.warn('问题分析失败:', response.status);
+                }
+            } catch (error) {
+                console.error('问题分析出错:', error);
+            }
+        }
+
+        // 智能检索状态管理
+        function toggleSmartStatus() {
+            const details = document.getElementById('smartStatusDetails');
+            const isVisible = details.style.display !== 'none';
+            details.style.display = isVisible ? 'none' : 'block';
+        }
+
+        // 存储当前优化的参数，用于应用到表单
+        let currentOptimizedParams = null;
+
+        function updateSmartRetrievalStatus(questionType, optimizedParams) {
+            const statusPanel = document.getElementById('smartRetrievalStatus');
+            const statusText = document.getElementById('smartStatusText');
+            const questionTypeSpan = document.getElementById('questionType');
+            const thresholdSpan = document.getElementById('optimizedThreshold');
+            const topkSpan = document.getElementById('optimizedTopK');
+            const weightSpan = document.getElementById('optimizedWeight');
+            const applyBtn = document.getElementById('applyParamsBtn');
+
+            // 保存优化参数供后续使用
+            currentOptimizedParams = optimizedParams;
+
+            // 显示状态面板
+            statusPanel.style.display = 'block';
+
+            // 获取当前表单值用于比较
+            const currentThreshold = parseFloat(document.getElementById('similarity_threshold').value);
+            const currentTopK = parseInt(document.getElementById('top_k').value);
+            const currentWeight = parseFloat(document.getElementById('vector_similarity_weight').value);
+
+            // 更新问题类型描述
+            const typeDescriptions = {
+                'name_query': '🔍 人名查询 - 关键词匹配优先',
+                'action_query': '🎯 行为查询 - 语义理解优化',
+                'definition_query': '📚 定义查询 - 平衡模式',
+                'method_query': '🛠️ 方法查询 - 上下文增强',
+                'comparison_query': '⚖️ 比较查询 - 综合分析',
+                'general': '📝 通用查询 - 标准模式'
+            };
+
+            const typeDesc = typeDescriptions[questionType] || questionType;
+            questionTypeSpan.textContent = typeDesc;
+            thresholdSpan.textContent = optimizedParams.similarity_threshold?.toFixed(3) || '-';
+            topkSpan.textContent = optimizedParams.top_k || '-';
+            weightSpan.textContent = optimizedParams.vector_similarity_weight?.toFixed(2) || '-';
+
+            // 显示参数变化信息
+            const thresholdChange = document.getElementById('thresholdChange');
+            const topkChange = document.getElementById('topkChange');
+            const weightChange = document.getElementById('weightChange');
+
+            let hasChanges = false;
+
+            if (optimizedParams.similarity_threshold && Math.abs(optimizedParams.similarity_threshold - currentThreshold) > 0.001) {
+                const change = optimizedParams.similarity_threshold - currentThreshold;
+                thresholdChange.textContent = `(${change > 0 ? '+' : ''}${change.toFixed(3)})`;
+                thresholdChange.style.color = change > 0 ? '#28a745' : '#dc3545';
+                hasChanges = true;
+            } else {
+                thresholdChange.textContent = '';
+            }
+
+            if (optimizedParams.top_k && optimizedParams.top_k !== currentTopK) {
+                const change = optimizedParams.top_k - currentTopK;
+                topkChange.textContent = `(${change > 0 ? '+' : ''}${change})`;
+                topkChange.style.color = change > 0 ? '#28a745' : '#dc3545';
+                hasChanges = true;
+            } else {
+                topkChange.textContent = '';
+            }
+
+            if (optimizedParams.vector_similarity_weight && Math.abs(optimizedParams.vector_similarity_weight - currentWeight) > 0.01) {
+                const change = optimizedParams.vector_similarity_weight - currentWeight;
+                weightChange.textContent = `(${change > 0 ? '+' : ''}${change.toFixed(2)})`;
+                weightChange.style.color = change > 0 ? '#28a745' : '#dc3545';
+                hasChanges = true;
+            } else {
+                weightChange.textContent = '';
+            }
+
+            // 根据是否有参数变化决定是否显示应用按钮
+            if (hasChanges) {
+                applyBtn.style.display = 'inline-block';
+                applyBtn.style.background = 'linear-gradient(135deg, #28a745 0%, #20c997 100%)';
+                applyBtn.style.color = 'white';
+            } else {
+                applyBtn.style.display = 'none';
+            }
+
+            // 更新状态摘要
+            if (questionType === 'action_query') {
+                statusText.innerHTML = '✨ <strong>已为"做了什么"类问题优化检索参数</strong> - 提升语义理解能力';
+                statusText.style.color = '#28a745';
+            } else if (questionType === 'name_query') {
+                statusText.innerHTML = '🎯 <strong>已为人名查询优化参数</strong> - 提升关键词匹配精度';
+                statusText.style.color = '#007bff';
+            } else {
+                statusText.innerHTML = `🤖 <strong>智能检索已激活</strong> - 针对${typeDesc}优化`;
+                statusText.style.color = '#667eea';
+            }
+
+            // 如果有变化，添加提示信息
+            if (hasChanges) {
+                statusText.innerHTML += '<br><small style="color: #ffc107;">⚡ 检测到参数优化，点击"应用优化"按钮同步到配置</small>';
+            }
+        }
+
+        // 应用优化参数到表单
+        function applyOptimizedParams() {
+            if (!currentOptimizedParams) {
+                alert('暂无优化参数可应用');
+                return;
+            }
+
+            const confirmMsg = '确定要将智能优化的参数应用到当前配置吗？\n\n这将更新：\n';
+            let changes = [];
+            
+            if (currentOptimizedParams.similarity_threshold) {
+                changes.push(`• 相似度阈值: ${currentOptimizedParams.similarity_threshold.toFixed(3)}`);
+            }
+            if (currentOptimizedParams.top_k) {
+                changes.push(`• 检索文档数: ${currentOptimizedParams.top_k}`);
+            }
+            if (currentOptimizedParams.vector_similarity_weight) {
+                changes.push(`• 向量权重: ${currentOptimizedParams.vector_similarity_weight.toFixed(2)}`);
+            }
+
+            if (confirm(confirmMsg + changes.join('\n'))) {
+                // 应用优化参数
+                if (currentOptimizedParams.similarity_threshold) {
+                    document.getElementById('similarity_threshold').value = currentOptimizedParams.similarity_threshold.toFixed(3);
+                    animateInputChange('similarity_threshold');
+                }
+                if (currentOptimizedParams.top_k) {
+                    document.getElementById('top_k').value = currentOptimizedParams.top_k;
+                    animateInputChange('top_k');
+                }
+                if (currentOptimizedParams.vector_similarity_weight) {
+                    document.getElementById('vector_similarity_weight').value = currentOptimizedParams.vector_similarity_weight.toFixed(1);
+                    animateInputChange('vector_similarity_weight');
+                }
+
+                // 隐藏应用按钮并更新状态
+                document.getElementById('applyParamsBtn').style.display = 'none';
+                
+                // 清除变化提示
+                document.getElementById('thresholdChange').textContent = '';
+                document.getElementById('topkChange').textContent = '';
+                document.getElementById('weightChange').textContent = '';
+
+                // 更新状态文本
+                const statusText = document.getElementById('smartStatusText');
+                statusText.innerHTML += '<br><small style="color: #28a745;">✅ 优化参数已应用到配置</small>';
+
+                alert('✅ 优化参数已成功应用到配置！');
+            }
+        }
+
+        // 输入框变化动画效果
+        function animateInputChange(inputId) {
+            const input = document.getElementById(inputId);
+            if (input) {
+                // 添加优化样式类
+                input.classList.add('param-optimized');
+                
+                // 2秒后移除样式类
+                setTimeout(() => {
+                    input.classList.remove('param-optimized');
+                }, 2000);
+            }
+        }
+
+        // 快捷键支持
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') {
+                document.getElementById('qaForm').dispatchEvent(new Event('submit'));
+            }
+            
+            // ESC键取消流式请求
+            if (e.key === 'Escape' && isStreamActive) {
+                cancelStreamChat();
+            }
+        });
+
+        // 流式问答功能
+        async function startStreamChat() {
+            const formData = getFormData();
+            if (!formData.question) {
+                alert('请输入问题！');
+                return;
+            }
+
+            // 创建AbortController用于取消请求
+            currentStreamController = new AbortController();
+            isStreamActive = true;
+
+            // 显示加载状态（流式版本）
+            showLoading(true, '准备流式生成...', true);
+
+            // 清空并准备答案显示区域
+            const answerContent = document.getElementById('answerContent');
+            answerContent.innerHTML = `
+                <div style="margin-bottom: 15px;">
+                    <strong style="color: #667eea;">⚡ AI实时回答：</strong>
+                    <span id="streamStatus" style="margin-left: 10px; font-size: 12px; color: #666;">正在检索文档...</span>
+                </div>
+                <div id="streamAnswer" class="answer-text" style="min-height: 100px; background: #f8f9fa; border-radius: 10px; padding: 15px;">
+                    <div id="streamCursor" style="display: inline-block; width: 2px; height: 20px; background: #667eea; animation: blink 1s infinite;"></div>
+                </div>
+                <div id="streamStats" style="margin-top: 15px; padding-top: 10px; border-top: 1px solid #eee; font-size: 12px; color: #666;">
+                    <div>📊 检索状态: <span id="retrievalStatus">准备中...</span></div>
+                    <div>📝 上下文状态: <span id="contextStatus">准备中...</span></div>
+                    <div>⏱️ 生成时间: <span id="generationTime">0s</span></div>
+                </div>
+            `;
+
+            // 切换到答案标签页
+            switchTab('answer');
+
+            try {
+                // 使用fetch进行流式请求（支持取消）
+                const response = await fetch('/qa/stream', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'text/event-stream',
+                        'Cache-Control': 'no-cache'
+                    },
+                    body: JSON.stringify(formData),
+                    signal: currentStreamController.signal  // 添加取消信号
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+
+                const streamAnswer = document.getElementById('streamAnswer');
+                const streamStatus = document.getElementById('streamStatus');
+                const retrievalStatus = document.getElementById('retrievalStatus');
+                const contextStatus = document.getElementById('contextStatus');
+                const generationTime = document.getElementById('generationTime');
+
+                let fullContent = '';
+                let startTime = Date.now();
+                let buffer = '';
+
+                // 处理流式响应
+                const processStream = async () => {
+                    try {
+                        while (true) {
+                            const { done, value } = await reader.read();
+                            if (done) break;
+
+                            const chunk = decoder.decode(value, { stream: true });
+                            buffer += chunk;
+
+                            // 按行分割数据
+                            const lines = buffer.split('\n');
+                            buffer = lines.pop(); // 保留最后一行可能不完整的数据
+
+                            for (const line of lines) {
+                                if (line.trim() === '') continue;
+                                
+                                let eventData = line;
+                                if (line.startsWith('data: ')) {
+                                    eventData = line.substring(6);
+                                }
+
+                                if (eventData === '[DONE]') {
+                                    showLoading(false);
+                                    return;
+                                }
+
+                                try {
+                                    const data = JSON.parse(eventData);
+                                    const currentTime = ((Date.now() - startTime) / 1000).toFixed(1);
+                                    generationTime.textContent = currentTime + 's';
+
+                                    switch (data.type) {
+                                        case 'retrieval_complete':
+                                            streamStatus.textContent = `检索完成，找到${data.documents_found}个相关文档`;
+                                            retrievalStatus.textContent = `完成 (${data.documents_found}个文档, ${data.time?.toFixed(2)}s)`;
+                                            break;
+
+                                        case 'context_ready':
+                                            streamStatus.textContent = `上下文准备完成，开始AI生成...`;
+                                            contextStatus.textContent = `完成 (使用${data.documents_used}个文档)`;
+                                            // 清除光标，开始显示内容
+                                            streamAnswer.innerHTML = '';
+                                            break;
+
+                                        case 'content':
+                                            // 实时追加内容
+                                            fullContent += data.content;
+                                            const processedContent = formatAnswerWithLinks(fullContent);
+                                            streamAnswer.innerHTML = processedContent + '<div id="streamCursor" style="display: inline-block; width: 2px; height: 20px; background: #667eea; animation: blink 1s infinite; margin-left: 2px;"></div>';
+                                            
+                                            // 美化人物主页链接（流式版本）
+                                            enhancePersonLinks(streamAnswer);
+                                            
+                                            // 自动滚动到底部
+                                            const rightPanel = streamAnswer.closest('.right-panel');
+                                            if (rightPanel) {
+                                                rightPanel.scrollTop = rightPanel.scrollHeight;
+                                            }
+                                            break;
+
+                                        case 'complete':
+                                            streamStatus.textContent = `生成完成！`;
+                                            // 移除光标
+                                            const finalCursor = document.getElementById('streamCursor');
+                                            if (finalCursor) {
+                                                finalCursor.remove();
+                                            }
+                                            
+                                            // 显示最终内容（包含人物链接）
+                                            const finalContent = data.full_content || fullContent;
+                                            streamAnswer.innerHTML = formatAnswerWithLinks(finalContent);
+                                            
+                                            // 美化最终答案中的人物主页链接
+                                            enhancePersonLinks(streamAnswer);
+                                            
+                                            console.log('流式生成完成，已处理人物链接');
+                                            
+                                            // 添加完成信息
+                                            streamAnswer.insertAdjacentHTML('beforeend', `
+                                                <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; font-size: 13px; color: #666;">
+                                                    <div>✅ 生成完成</div>
+                                                    <div>📊 使用上下文: ${data.context_used ? '是' : '否'}</div>
+                                                    <div>⏱️ 总耗时: ${data.total_time?.toFixed(2)}s</div>
+                                                </div>
+                                            `);
+                                            
+                                            showLoading(false);
+                                            return;
+
+                                        case 'cancelled':
+                                            streamStatus.textContent = '生成已取消';
+                                            streamAnswer.innerHTML = `
+                                                <div style="color: #6c757d; padding: 15px; background: #e2e3e5; border-radius: 8px; text-align: center;">
+                                                    ⏸️ <strong>生成已暂停</strong><br>
+                                                    <small style="margin-top: 8px; display: block;">${data.message || '请求已被取消'}</small>
+                                                </div>
+                                            `;
+                                            showLoading(false);
+                                            return;
+
+                                        case 'error':
+                                            streamStatus.textContent = '生成出错';
+                                            streamAnswer.innerHTML = `
+                                                <div style="color: #dc3545; padding: 15px; background: #f8d7da; border-radius: 8px;">
+                                                    ❌ 错误: ${data.message}
+                                                </div>
+                                            `;
+                                            showLoading(false);
+                                            return;
+                                    }
+                                } catch (parseError) {
+                                    console.warn('解析流式数据失败:', parseError, 'Data:', eventData);
+                                }
+                            }
+                        }
+                                                } catch (streamError) {
+                                if (streamError.name === 'AbortError') {
+                                    console.log('流式请求已被用户取消');
+                                    return; // 取消时不显示错误
+                                }
+                                
+                                console.error('流式处理错误:', streamError);
+                                streamStatus.textContent = '数据处理出错';
+                                streamAnswer.innerHTML = `
+                                    <div style="color: #dc3545; padding: 15px; background: #f8d7da; border-radius: 8px;">
+                                        ❌ 数据流处理出错: ${streamError.message}
+                                    </div>
+                                `;
+                                showLoading(false);
+                            }
+                };
+
+                // 开始处理流
+                processStream();
+
+                // 设置超时处理 - 使用后端配置的超时时间
+                setTimeout(() => {
+                    try {
+                        reader.cancel();
+                    } catch (e) {}
+                    showLoading(false);
+                    streamStatus.textContent = '请求超时';
+                    streamAnswer.innerHTML = `
+                        <div style="color: #ffc107; padding: 15px; background: #fff3cd; border-radius: 8px;">
+                            ⚠️ 请求超时，请重试或使用串行回答模式<br>
+                            <small style="margin-top: 8px; display: block;">如果问题复杂，建议增加超时时间或使用普通问答模式</small>
+                        </div>
+                    `;
+                }, streamTimeoutMs); // 动态超时配置
+
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    console.log('流式请求已被用户取消');
+                    // 用户取消时不显示错误提示
+                    return;
+                }
+                
+                console.error('流式请求失败:', error);
+                showLoading(false);
+                
+                // 显示友好的错误信息
+                const answerContent = document.getElementById('answerContent');
+                answerContent.innerHTML = `
+                    <div class="answer-content">
+                        <div style="color: #dc3545; padding: 20px; background: #f8d7da; border-radius: 12px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">⚠️</div>
+                            <strong>启动流式问答失败</strong><br>
+                            <small style="margin-top: 8px; display: block; color: #721c24;">
+                                ${error.message || '网络连接异常，请检查服务状态后重试'}
+                            </small>
+                            <div style="margin-top: 15px;">
+                                <button class="btn btn-primary" onclick="location.reload()" style="font-size: 12px; padding: 8px 16px;">
+                                    🔄 刷新页面
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html> 
+</html> 
