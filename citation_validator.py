@@ -15,6 +15,7 @@ from enum import Enum
 import re
 from difflib import SequenceMatcher
 from citation_matcher import citation_matcher
+from config import config
 
 logger = logging.getLogger(__name__)
 
@@ -197,21 +198,24 @@ class CitationValidator:
         """使用智能匹配器验证"""
         try:
             # 确保匹配器已加载
-            citation_matcher.load_links_data()
-            
-            # 查找最佳匹配
-            matches = citation_matcher.find_matching_links(content, top_k=5)
-            
-            # 检查给定链接是否在匹配结果中
-            for url, score, source in matches:
-                if url == link:
-                    return score
-            
-            # 如果没有直接匹配，返回最佳匹配的分数作为参考
-            return matches[0][1] if matches else 0.0
-            
+            if config.ENABLE_CITATION_MATCHER:
+                citation_matcher.load_links_data()
+                
+                # 查找最佳匹配
+                matches = citation_matcher.find_matching_links(content, top_k=5)
+                
+                # 检查给定链接是否在匹配结果中
+                for url, score, source in matches:
+                    if url == link:
+                        return score
+                
+                # 如果没有直接匹配，返回最佳匹配的分数作为参考
+                return matches[0][1] if matches else 0.0
+            else:
+                # citation_matcher已禁用，返回默认分数
+                return 0.5
         except Exception as e:
-            logger.warning(f"智能匹配器验证失败: {e}")
+            logger.warning(f"使用智能匹配器验证时出错: {e}")
             return 0.0
     
     def _validate_keywords(self, content: str, source: str) -> float:
@@ -352,10 +356,11 @@ class CitationValidator:
         if "内容匹配度过低" in str(issues):
             # 尝试找到更好的匹配
             try:
-                citation_matcher.load_links_data()
-                matches = citation_matcher.find_matching_links(content, top_k=3)
-                if matches:
-                    suggestions.append(f"建议使用更匹配的链接: {matches[0][0]}")
+                if config.ENABLE_CITATION_MATCHER:
+                    citation_matcher.load_links_data()
+                    matches = citation_matcher.find_matching_links(content, top_k=3)
+                    if matches:
+                        suggestions.append(f"建议使用更匹配的链接: {matches[0][0]}")
             except Exception:
                 pass
             

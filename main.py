@@ -64,11 +64,14 @@ logger = setup_logging()
 
 # 初始化智能引用匹配器
 def initialize_citation_system():
-    """初始化智能引用系统"""
+    """初始化智能引用匹配系统"""
     try:
         logger.info("正在初始化智能引用匹配系统...")
-        citation_matcher.load_links_data()
-        logger.info("智能引用匹配系统初始化完成")
+        if config.ENABLE_CITATION_MATCHER:
+            citation_matcher.load_links_data()
+            logger.info("智能引用匹配系统初始化完成")
+        else:
+            logger.info("智能引用匹配系统已禁用")
     except Exception as e:
         logger.warning(f"智能引用匹配系统初始化失败，将使用基础模式: {e}")
 
@@ -76,12 +79,15 @@ def initialize_name_linker_system():
     """初始化人物姓名链接系统"""
     try:
         logger.info("正在初始化人物姓名链接系统...")
-        success = name_linker.load_name_data()
-        if success:
-            stats = name_linker.get_statistics()
-            logger.info(f"人物姓名链接系统初始化完成 - 加载了 {stats['total_persons']} 个人物，其中 {stats['persons_with_links']} 个有主页链接")
+        if config.ENABLE_NAME_LINKER:
+            success = name_linker.load_name_data()
+            if success:
+                stats = name_linker.get_statistics()
+                logger.info(f"人物姓名链接系统初始化完成 - 加载了 {stats['total_persons']} 个人物，其中 {stats['persons_with_links']} 个有主页链接")
+            else:
+                logger.warning("人物姓名链接系统初始化失败，该功能将不可用")
         else:
-            logger.warning("人物姓名链接系统初始化失败，该功能将不可用")
+            logger.info("人物姓名链接系统已禁用")
     except Exception as e:
         logger.warning(f"人物姓名链接系统初始化失败: {e}")
 
@@ -231,8 +237,12 @@ def extract_citations_from_documents(documents: List[Dict]) -> List[Dict]:
 
     # 首先使用增强解析器处理文档
     try:
-        enhanced_documents = enhanced_parser.batch_parse_documents(documents, fast_mode=True)
-        logger.info(f"使用增强解析器处理了 {len(enhanced_documents)} 个文档（快速模式）")
+        if config.ENABLE_ENHANCED_PARSER:
+            enhanced_documents = enhanced_parser.batch_parse_documents(documents, fast_mode=True)
+            logger.info(f"使用增强解析器处理了 {len(enhanced_documents)} 个文档（快速模式）")
+        else:
+            enhanced_documents = documents
+            logger.info(f"已跳过增强内容解析，直接使用原始文档")
     except Exception as e:
         logger.warning(f"增强解析器处理失败，回退到原始文档: {e}")
         enhanced_documents = documents
@@ -251,6 +261,7 @@ def extract_citations_from_documents(documents: List[Dict]) -> List[Dict]:
             link = metadata.get('matched_link')
             if not source and metadata.get('matched_source'):
                 source = metadata.get('matched_source')
+
 
         # 2. 使用解析出的原文链接
         elif metadata.get('source_link'):
@@ -1720,10 +1731,14 @@ async def qa_stream(request: QAStreamRequest):
                         # 流式接口人物主页链接后处理逻辑 - 修复版（与普通接口保持一致）
                         # ==================================================
                         try:
-                            # 在问题和完整回答中搜索提及的人物
-                            complete_answer = chunk.get('full_content', full_content)
-                            mentioned_in_question = name_linker.find_mentioned_names(request.question)
-                            mentioned_in_answer = name_linker.find_mentioned_names(complete_answer)
+                            # 在问题和答案中搜索提及的人物
+                            if config.ENABLE_NAME_LINKER:
+                                mentioned_in_question = name_linker.find_mentioned_names(request.question)
+                                mentioned_in_answer = name_linker.find_mentioned_names(answer)
+                            else:
+                                mentioned_in_question = {}
+                                mentioned_in_answer = {}
+                                logger.info("已跳过人名检测")
 
                             # 合并结果并去重，优先保留有链接的人物
                             all_mentioned = {}

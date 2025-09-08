@@ -68,6 +68,11 @@ class Config:
         self.CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
         self.API_KEY = os.getenv("API_KEY")  # 可选的API密钥保护
         
+        # 添加模块启用控制配置
+        self.ENABLE_ENHANCED_PARSER = os.getenv("ENABLE_ENHANCED_PARSER", "false").lower() == "true"
+        self.ENABLE_CITATION_MATCHER = os.getenv("ENABLE_CITATION_MATCHER", "false").lower() == "true"
+        self.ENABLE_NAME_LINKER = os.getenv("ENABLE_NAME_LINKER", "false").lower() == "true"
+        
         # 缓存配置
         self.ENABLE_CACHE = os.getenv("ENABLE_CACHE", "false").lower() == "true"
         self.CACHE_TTL = int(os.getenv("CACHE_TTL", "3600"))  # 缓存时间（秒）
@@ -200,7 +205,7 @@ class Config:
             print(f"RAGFlow API Key: {'已配置' if self.RAGFLOW_API_KEY else '未配置'}")
             print(f"默认数据集ID: {self.DEFAULT_DATASET_IDS} (共{len(self.DEFAULT_DATASET_IDS)}个)")
             print(f"Qwen模型: {self.QWEN_MODEL}")
-            print(f"Qwen API Key: {'已配置' if self.QWEN_API_KEY else '未配置'}")
+            print(f"QWEN API Key: {'已配置' if self.QWEN_API_KEY else '未配置'}")
             print(f"服务地址: {self.HOST}:{self.PORT}")
             print(f"调试模式: {self.DEBUG}")
             print("================")

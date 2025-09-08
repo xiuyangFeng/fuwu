@@ -12,6 +12,7 @@ import logging
 import re
 from typing import Dict, List, Optional, Tuple
 from citation_matcher import citation_matcher
+from config import config
 
 logger = logging.getLogger(__name__)
 
@@ -145,25 +146,29 @@ class EnhancedContentParser:
                 return None, metadata
             
             # 使用智能引用匹配器（数据应该已经在初始化时加载了）
-            if not citation_matcher.loaded:
-                logger.warning("Citation matcher未加载，跳过智能匹配")
-                metadata["skipped_reason"] = "matcher_not_loaded"
-                return None, metadata
+            # 只有在启用CITATION_MATCHER并且已加载时才进行匹配
+            if config.ENABLE_CITATION_MATCHER and citation_matcher.loaded:
+                best_match = citation_matcher.get_best_match(text, threshold=0.2)  # 降低阈值提高匹配率
                 
-            best_match = citation_matcher.get_best_match(text, threshold=0.2)  # 降低阈值提高匹配率
-            
-            if best_match:
-                url, source = best_match
-                metadata.update({
-                    "matched_url": url,
-                    "matched_source": source,
-                    "matching_successful": True
-                })
-                logger.info(f"智能匹配找到链接: {url}")
-                return url, metadata
+                if best_match:
+                    url, source = best_match
+                    metadata.update({
+                        "matched_url": url,
+                        "matched_source": source,
+                        "matching_successful": True
+                    })
+                    logger.info(f"智能匹配找到链接: {url}")
+                    return url, metadata
+                else:
+                    metadata["matching_successful"] = False
+                    logger.debug("智能匹配未找到合适的链接")
             else:
-                metadata["matching_successful"] = False
-                logger.debug("智能匹配未找到合适的链接")
+                if not config.ENABLE_CITATION_MATCHER:
+                    metadata["skipped_reason"] = "citation_matcher_disabled"
+                else:
+                    logger.warning("Citation matcher未加载，跳过智能匹配")
+                    metadata["skipped_reason"] = "matcher_not_loaded"
+                return None, metadata
                 
         except Exception as e:
             logger.warning(f"智能链接匹配失败: {e}")
@@ -256,5 +261,7 @@ enhanced_parser = EnhancedContentParser()
 # 向后兼容的函数
 def parse_content_and_link(content: str) -> Tuple[str, Optional[str], Optional[str]]:
     """向后兼容的解析函数（快速模式）"""
-    text, wechat_link, source_link, _ = enhanced_parser.parse_content_and_links(content, use_intelligent_matching=False)
+    # 根据配置决定是否使用智能匹配
+    use_intelligent = config.ENABLE_CITATION_MATCHER
+    text, wechat_link, source_link, _ = enhanced_parser.parse_content_and_links(content, use_intelligent_matching=use_intelligent)
     return text, wechat_link, source_link

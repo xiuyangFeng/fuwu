@@ -202,7 +202,7 @@ class RAGFlowClient:
                     
                     # 获取响应文本用于调试
                     response_text = resp.text
-                    logger.debug(f"原始响应前500字符: {response_text[:500]}")
+                    logger.debug(f"原始响应前2000字符: {response_text[:2000]}")
                     
                     resp.raise_for_status()
                     
