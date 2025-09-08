@@ -1161,6 +1161,11 @@ async def qa(request: QARequest):
     qwen_start = time.time()
     try:
         logger.info("调用Qwen大模型...")
+        # 在调试模式下输出完整的上下文内容
+        if config.DEBUG:
+            logger.debug(f"完整上下文内容:\n{context}")
+            logger.debug(f"上下文长度: {len(context)} 字符")
+        
         qwen_result = await qwen_client.chat(
             messages=[{"role": "user", "content": context}],
             temperature=request.temperature,
@@ -1173,6 +1178,7 @@ async def qa(request: QARequest):
         # ==================================================
         # 人物主页链接后处理逻辑 - 新增功能
         # ==================================================
+
         try:
             # 在问题和答案中搜索提及的人物
             mentioned_in_question = name_linker.find_mentioned_names(request.question)
@@ -1260,7 +1266,7 @@ async def qa(request: QARequest):
             citations = [Citation(**citation) for citation in citations_data]
             logger.info(f"非流式问答：提取到 {len(citations)} 个引用来源")
 
-            # 验证引用准确性（仅在DEBUG模式下或特定情况下启用）
+            # 验证引用准确性（仅在DEBUG模式下启用）
             if config.DEBUG and citations_data:
                 try:
                     citation_validation_result = validate_response_citations(answer, citations_data)
@@ -1583,6 +1589,16 @@ async def qa_stream(request: QAStreamRequest):
                     if score >= final_similarity_threshold:
                         quality_documents.append(doc)
 
+            # 在调试模式下输出文档信息
+            if config.DEBUG:
+                logger.debug(f"流式接口 - 检索到的总文档数: {len(documents)}")
+                logger.debug(f"流式接口 - 高质量文档数: {len(quality_documents)}")
+                for i, doc in enumerate(quality_documents):
+                    logger.debug(f"流式接口 - 文档 {i+1}:")
+                    logger.debug(f"  内容: {doc.get('content', '')[:200]}...")
+                    logger.debug(f"  分数: {doc.get('score', 0)}")
+                    logger.debug(f"  元数据: {doc.get('metadata', {})}")
+
             # 获取提示词模板
             prompt_template = prompt_manager.get_template(request.prompt_template)
 
@@ -1691,6 +1707,11 @@ async def qa_stream(request: QAStreamRequest):
 
             # 3. 调用Qwen流式生成
             logger.info(f"流式接口：开始调用Qwen流式生成，上下文长度={len(context)}")
+
+            # 在调试模式下输出完整的上下文内容
+            if config.DEBUG:
+                logger.debug(f"完整上下文内容:\n{context}")
+                logger.debug(f"上下文长度: {len(context)} 字符")
 
             try:
                 qwen_stream = qwen_client.chat(

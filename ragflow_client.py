@@ -202,10 +202,13 @@ class RAGFlowClient:
                     
                     # 获取响应文本用于调试
                     response_text = resp.text
-                    logger.debug(f"原始响应前2000字符: {response_text[:2000]}")
+                    logger.debug(f"原始响应前1000字符: {response_text[:1000]}")
                     
-                    resp.raise_for_status()
+                    # 在调试模式下输出完整响应
+                    if config.DEBUG:
+                        logger.debug(f"完整原始响应: {response_text}")
                     
+                    # 尝试解析JSON
                     try:
                         result = resp.json()
                     except json.JSONDecodeError as json_error:

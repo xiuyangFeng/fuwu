@@ -62,7 +62,8 @@ class Config:
         self.DEBUG = os.getenv("DEBUG", "false").lower() == "true"
         self.HOST = os.getenv("HOST", "0.0.0.0")
         self.PORT = int(os.getenv("PORT", "8001"))  # 使用不同端口避免冲突
-        self.LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+        self.LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG").upper()  # 更改默认日志级别为 DEBUG
+        self.LOG_FORMAT = os.getenv("LOG_FORMAT", "[%(asctime)s] [%(levelname)s] [%(module)s] %(message)s")  # 新增日志格式配置
         
         # 安全配置
         self.CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
