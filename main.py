@@ -1734,7 +1734,7 @@ async def qa_stream(request: QAStreamRequest):
                             # 在问题和答案中搜索提及的人物
                             if config.ENABLE_NAME_LINKER:
                                 mentioned_in_question = name_linker.find_mentioned_names(request.question)
-                                mentioned_in_answer = name_linker.find_mentioned_names(answer)
+                                mentioned_in_answer = name_linker.find_mentioned_names(full_content)
                             else:
                                 mentioned_in_question = {}
                                 mentioned_in_answer = {}
@@ -1754,7 +1754,7 @@ async def qa_stream(request: QAStreamRequest):
 
                                 if person_links_md:
                                     # 将格式化的人物链接附加到完整答案中
-                                    updated_content = complete_answer + person_links_md
+                                    updated_content = full_content + person_links_md
 
                                     # 发送更新后的完整内容
                                     chunk['full_content'] = updated_content

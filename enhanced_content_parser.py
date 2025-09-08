@@ -54,6 +54,11 @@ class EnhancedContentParser:
         Returns:
             Tuple[正文文本, 微信链接, 原文链接, 解析元数据]
         """
+        # 检查是否启用了增强内容解析器
+        if not config.ENABLE_ENHANCED_PARSER:
+            # 如果未启用，返回原始内容，不进行任何解析
+            return content, None, None, {"parsing_method": "disabled"}
+            
         if not content:
             return "", None, None, {"parsing_method": "empty"}
         
@@ -139,6 +144,11 @@ class EnhancedContentParser:
         """基于内容智能匹配链接"""
         metadata = {"intelligent_matching_attempted": True}
         
+        # 检查是否启用了增强内容解析器
+        if not config.ENABLE_ENHANCED_PARSER:
+            metadata["skipped_reason"] = "enhanced_parser_disabled"
+            return None, metadata
+            
         try:
             # 快速检查：如果文本太短，跳过智能匹配
             if len(text.strip()) < 20:
@@ -210,6 +220,12 @@ class EnhancedContentParser:
     
     def batch_parse_documents(self, documents: List[Dict], fast_mode: bool = True) -> List[Dict]:
         """批量解析文档"""
+        # 检查是否启用了增强内容解析器
+        if not config.ENABLE_ENHANCED_PARSER:
+            # 如果未启用，直接返回原始文档
+            logger.info(f"enhanced_parser: 模块已禁用，跳过批量解析{len(documents)}个文档")
+            return documents
+            
         logger.info(f"enhanced_parser: 开始批量解析{len(documents)}个文档（快速模式: {fast_mode}）")
         enhanced_documents = []
         
@@ -261,6 +277,44 @@ enhanced_parser = EnhancedContentParser()
 # 向后兼容的函数
 def parse_content_and_link(content: str) -> Tuple[str, Optional[str], Optional[str]]:
     """向后兼容的解析函数（快速模式）"""
+    # 检查是否启用了增强内容解析器
+    if not config.ENABLE_ENHANCED_PARSER:
+        # 如果未启用，使用基本解析方法
+        import re
+        if not content or not isinstance(content, str):
+            return content or "", None, None
+
+        text_content = content
+        wechat_link = None
+        source_link = None
+
+        # 尝试匹配微信链接
+        wechat_pattern = r'微信链接[:：]\s*(https?://[^\s\n]+)'
+        wechat_match = re.search(wechat_pattern, content, re.IGNORECASE)
+        if wechat_match:
+            wechat_link = wechat_match.group(1).strip()
+            # 从文本中移除链接部分
+            text_content = content[:wechat_match.start()].strip()
+
+        # 尝试匹配原文链接
+        source_pattern = r'原文链接[:：]\s*(https?://[^\s\n]+)'
+        source_match = re.search(source_pattern, content, re.IGNORECASE)
+        if source_match:
+            source_link = source_match.group(1).strip()
+            # 更新正文内容
+            if wechat_match:
+                # 如果两个链接都存在，取较早出现位置之前的内容
+                earliest_pos = min(wechat_match.start(), source_match.start())
+                text_content = content[:earliest_pos].strip()
+            else:
+                text_content = content[:source_match.start()].strip()
+
+        # 清理正文内容
+        text_content = re.sub(r'\s+', ' ', text_content)  # 移除多余的空白字符
+        text_content = text_content.strip()
+
+        return text_content, wechat_link, source_link
+    
     # 根据配置决定是否使用智能匹配
     use_intelligent = config.ENABLE_CITATION_MATCHER
     text, wechat_link, source_link, _ = enhanced_parser.parse_content_and_links(content, use_intelligent_matching=use_intelligent)
