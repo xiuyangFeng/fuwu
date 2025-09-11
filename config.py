@@ -77,6 +77,9 @@ class Config:
         # 缓存配置
         self.ENABLE_CACHE = os.getenv("ENABLE_CACHE", "false").lower() == "true"
         self.CACHE_TTL = int(os.getenv("CACHE_TTL", "3600"))  # 缓存时间（秒）
+
+        # 微信公众号配置
+        self.WECHAT_TOKEN = os.getenv("WECHAT_TOKEN", "your_wechat_token") # 请在.env文件中设置您的微信令牌
         
         # 记录重新加载时间
         Config._last_reload_time = datetime.now()
@@ -212,4 +215,4 @@ class Config:
             print("================")
 
 # 创建全局配置实例
-config = Config() 
+config = Config()
