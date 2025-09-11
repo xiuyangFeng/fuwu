@@ -80,6 +80,8 @@ class Config:
 
         # 微信公众号配置
         self.WECHAT_TOKEN = os.getenv("WECHAT_TOKEN", "your_wechat_token") # 请在.env文件中设置您的微信令牌
+        self.WECHAT_APPID = os.getenv("WECHAT_APPID") # 请在.env文件中设置您的微信 AppID
+        self.WECHAT_APPSECRET = os.getenv("WECHAT_APPSECRET") # 请在.env文件中设置您的微信 AppSecret
         
         # 记录重新加载时间
         Config._last_reload_time = datetime.now()
