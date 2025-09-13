@@ -36,41 +36,55 @@ else:
 
 # --- 2. 核心后台处理函数 ---
 
-def handle_ragflow_request(user_openid, user_question):
+def handle_qa_system_request(user_openid, user_question):
     """
-    在独立的后台线程中执行，负责调用 RAGflow 并通过客服消息接口回复用户。
-    这个函数是异步执行的核心。
+    在独立的后台线程中执行，负责调用本地的QA系统(/qa接口)并处理响应，
+    然后通过客服消息接口回复用户。
     """
-    logger.info(f"[后台任务] 开始为用户 '{user_openid}' 处理问题: '{user_question}'")
+    logger.info(f"[后台任务] 开始为用户 '{user_openid}' 调用完整QA系统处理问题: '{user_question}'")
     
     final_answer = ""
     try:
-        # 步骤 1: 调用 RAGFlow API
-        logger.info(f"[后台任务] 正在调用 RAGFlow API: {config.RAGFLOW_URL}")
-        # 注意：根据你的 RAGflow API 要求调整 payload
-        # 第一个脚本用 "query", 第二个用 "question"。这里我们统一使用 "query"
-        # 同时传入 user_id 便于 RAGflow 进行会话管理
-        payload = {"query": user_question, "user_id": user_openid} 
+        # 步骤 1: 调用本地的 /qa API
+        # QA_SYSTEM_URL 应该指向 main.py 服务的地址，例如 'http://127.0.0.1:8000/qa'
+        qa_system_url = config.QA_SYSTEM_URL
+        if not qa_system_url:
+            raise ValueError("QA_SYSTEM_URL 未在配置中设置")
+
+        logger.info(f"[后台任务] 正在调用QA系统API: {qa_system_url}")
         
-        # 设置请求头，如果需要的话
+        # 构建符合 /qa 接口的请求体
+        payload = {
+            "question": user_question,
+            # 可以根据需要传递其他参数，例如指定提示词模板
+            "prompt_template": "enhanced_citation" 
+        }
+        
         headers = {"Content-Type": "application/json"}
 
-        response = requests.post(config.RAGFLOW_URL, json=payload, headers=headers, timeout=180)
-        response.raise_for_status() # 如果HTTP状态码不是2xx，则抛出异常
+        # 调用/qa接口，它会完成包括四个模块在内的所有处理
+        response = requests.post(qa_system_url, json=payload, headers=headers, timeout=180)
+        response.raise_for_status()  # 如果HTTP状态码不是2xx，则抛出异常
         
         response_data = response.json()
         
-        # 解析 RAGflow 的响应。根据 RAGflow API 的实际返回结构进行调整
-        # 假设答案在 'answer' 字段中
-        final_answer = response_data.get("answer", "抱歉，知识库中暂未找到相关内容。")
-        logger.info(f"[后台任务] 已从 RAGFlow 成功获取答案。")
+        # 从 /qa 接口的响应中提取最终答案
+        # /qa 接口返回的答案在 'answer' 字段中，已经经过了所有模块的处理
+        final_answer = response_data.get("answer")
+        if not final_answer:
+            final_answer = "抱歉，知识库中暂未找到相关内容或系统处理出错。"
+        
+        logger.info(f"[后台任务] 已从QA系统成功获取完整答案。")
 
     except requests.exceptions.Timeout:
-        logger.error(f"[后台任务] 调用 RAGFlow 服务超时。")
+        logger.error(f"[后台任务] 调用QA系统服务超时。")
         final_answer = "抱歉，机器人大脑处理超时，请您稍后再试一次。"
     except requests.exceptions.RequestException as e:
-        logger.error(f"[后台任务] 调用 RAGFlow 服务时发生网络错误: {e}")
+        logger.error(f"[后台任务] 调用QA系统服务时发生网络错误: {e}")
         final_answer = "抱歉，机器人大脑暂时连接不上，请稍后再试一次哦。"
+    except ValueError as e:
+        logger.error(f"[后台任务] 配置错误: {e}")
+        final_answer = "系统配置不正确，请联系管理员检查配置。"
     except Exception as e:
         logger.error(f"[后台任务] 处理过程中发生未知错误: {e}", exc_info=True)
         final_answer = "哎呀，系统出了一点小问题，工程师正在火速赶来修复！"
@@ -116,10 +130,10 @@ def wechat_handler():
             msg = parse_message(request.data)
             
             if msg.type == 'text':
-                # 对于文本消息，创建并启动新线程来处理耗时的 RAGflow 请求
+                # 对于文本消息，创建并启动新线程来处理耗时的QA系统请求
                 logger.info(f"收到来自用户 '{msg.source}' 的文本消息: '{msg.content}'。转交后台处理。")
                 task = threading.Thread(
-                    target=handle_ragflow_request,
+                    target=handle_qa_system_request,
                     args=(msg.source, msg.content) # msg.source 是用户的 OpenID
                 )
                 task.start() # 启动线程后，此函数会立即继续执行下面的 return

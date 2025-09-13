@@ -83,6 +83,9 @@ class Config:
         self.WECHAT_APPID = os.getenv("WECHAT_APPID") # 请在.env文件中设置您的微信 AppID
         self.WECHAT_APPSECRET = os.getenv("WECHAT_APPSECRET") # 请在.env文件中设置您的微信 AppSecret
         
+        # QA系统API地址
+        self.QA_SYSTEM_URL = os.getenv('QA_SYSTEM_URL', 'http://127.0.0.1:8000/qa')
+
         # 记录重新加载时间
         Config._last_reload_time = datetime.now()
         
