@@ -80,8 +80,8 @@ class Config:
 
         # 微信公众号配置
         self.WECHAT_TOKEN = os.getenv("WECHAT_TOKEN", "your_wechat_token") # 请在.env文件中设置您的微信令牌
-        self.WECHAT_APPID = os.getenv("WECHAT_APPID") # 请在.env文件中设置您的微信 AppID
-        self.WECHAT_APPSECRET = os.getenv("WECHAT_APPSECRET") # 请在.env文件中设置您的微信 AppSecret
+        self.WECHAT_APPID = os.getenv("WECHAT_APP_ID") # 请在.env文件中设置您的微信 AppID
+        self.WECHAT_APPSECRET = os.getenv("WECHAT_APP_SECRET") # 请在.env文件中设置您的微信 AppSecret
         
         # QA系统API地址
         self.QA_SYSTEM_URL = os.getenv('QA_SYSTEM_URL', 'http://127.0.0.1:8000/qa')

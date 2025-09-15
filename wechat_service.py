@@ -24,11 +24,11 @@ app = Flask(__name__)
 # 初始化 WeChat 客户端，用于发送客服消息
 # 这是异步回复的关键，必须配置 AppID 和 AppSecret
 wechat_client = None
-if not all([config.WECHAT_APPID, config.WECHAT_APPSECRET]):
+if not all([config.WECHAT_APP_ID, config.WECHAT_APP_SECRET]):
     logger.error("致命错误：WECHAT_APPID 或 WECHAT_APPSECRET 未配置！客服消息功能将不可用。")
 else:
     try:
-        wechat_client = WeChatClient(config.WECHAT_APPID, config.WECHAT_APPSECRET, timeout=120)
+        wechat_client = WeChatClient(config.WECHAT_APP_ID, config.WECHAT_APP_SECRET, timeout=120)
         logger.info("WeChatClient 初始化成功。")
     except Exception as e:
         logger.error(f"WeChatClient 初始化失败: {e}")
@@ -46,7 +46,7 @@ def handle_qa_system_request(user_openid, user_question):
     final_answer = ""
     try:
         # 步骤 1: 调用本地的 /qa API
-        # QA_SYSTEM_URL 应该指向 main.py 服务的地址，例如 'http://127.0.0.1:8000/qa'
+        # QA_SYSTEM_URL 应该指向 main.py 服务的地址
         qa_system_url = config.QA_SYSTEM_URL
         if not qa_system_url:
             raise ValueError("QA_SYSTEM_URL 未在配置中设置")
