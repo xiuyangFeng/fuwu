@@ -156,8 +156,8 @@ class SmartRetrievalStrategy:
             params['vector_similarity_weight'] = 0.7
             params['top_k'] = 18
 
-        logger.info(f"问题类型: {question_type}, 优化参数: 阈值={params['similarity_threshold']:.3f}, "
-                   f"向量权重={params['vector_similarity_weight']:.2f}, TopK={params['top_k']}")
+        logger.info(f"问题类型: {question_type}, 优化参数: 阈值={params['similarity_threshold']}, "
+                   f"向量权重={params['vector_similarity_weight']}, TopK={params['top_k']}")
 
         return params
 
@@ -581,7 +581,7 @@ class QARequest(BaseModel):
     question: str = Field(..., description="用户问题", min_length=1, max_length=1000)
     dataset_ids: List[str] = Field(default_factory=lambda: config.DEFAULT_DATASET_IDS, description="数据集ID列表")
     document_ids: List[str] = Field(default_factory=lambda: config.DEFAULT_DOCUMENT_IDS, description="文档ID列表")
-    prompt_template: str = Field(default="default", description="提示词模板名称或自定义提示词")
+    prompt_template: str = Field(default="enhanced_citation", description="提示词模板名称或自定义提示词")
     similarity_threshold: float = Field(default=None, ge=0.0, le=1.0, description="相似度阈值")
     vector_similarity_weight: float = Field(default=None, ge=0.0, le=1.0, description="向量相似度权重")
     top_k: int = Field(default=None, ge=1, le=100, description="返回文档数量")
@@ -998,14 +998,14 @@ async def qa(request: QARequest):
     ragflow_start = time.time()
 
     try:
-        logger.info(f"调用RAGflow检索接口（智能优化）- 阈值:{final_similarity_threshold:.3f}, TopK:{final_top_k}")
+        logger.info(f"调用RAGflow检索接口（智能优化）- 阈值:{final_similarity_threshold}, TopK:{final_top_k}")
         ragflow_result = await ragflow_client.retrieve(
             question=request.question,
             dataset_ids=request.dataset_ids,
             document_ids=request.document_ids,
-            similarity_threshold=final_similarity_threshold,
-            vector_similarity_weight=final_vector_weight,
-            top_k=final_top_k,
+            similarity_threshold=final_similarity_threshold if final_similarity_threshold is not None else 0.05,
+            vector_similarity_weight=final_vector_weight if final_vector_weight is not None else 0.6 ,
+            top_k=final_top_k if final_top_k is not None else 15,
             page_size=request.page_size,
             keyword=request.keyword,
             highlight=request.highlight,
@@ -1030,11 +1030,15 @@ async def qa(request: QARequest):
     context_used = False
 
     # 过滤低质量文档（使用优化后的相似度阈值）
+    # 修复后的代码 - 为阈值比较提供默认值
     quality_documents = []
     if documents:
+    # 确定用于比较的阈值，如果为 None，则使用配置文件中的默认值
+        comparison_threshold = final_similarity_threshold if final_similarity_threshold is not None else 0.05
+
         for doc in documents:
             score = doc.get('score', 0)
-            if score >= (final_similarity_threshold if request.similarity_threshold is None else final_similarity_threshold):
+            if score >= comparison_threshold:
                 quality_documents.append(doc)
 
     # 获取提示词模板
