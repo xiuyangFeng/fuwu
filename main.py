@@ -1005,7 +1005,7 @@ async def qa(request: QARequest):
             document_ids=request.document_ids,
             similarity_threshold=final_similarity_threshold if final_similarity_threshold is not None else 0.05,
             vector_similarity_weight=final_vector_weight if final_vector_weight is not None else 0.6 ,
-            top_k=final_top_k if final_top_k is not None else 15,
+            top_k=final_top_k if final_top_k is not None else 5,
             page_size=request.page_size,
             keyword=request.keyword,
             highlight=request.highlight,
