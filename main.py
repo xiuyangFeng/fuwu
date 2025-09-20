@@ -136,25 +136,25 @@ class SmartRetrievalStrategy:
             # 人名查询：更依赖关键词匹配
             params['similarity_threshold'] = max(params.get('similarity_threshold', 0.1), 0.1)
             params['vector_similarity_weight'] = min(params.get('vector_similarity_weight', 0.7), 0.5)
-            params['top_k'] = min(params.get('top_k', 15), 10)
+            params['top_k'] = 5
 
         elif question_type == 'action_query':
             # 行为/工作查询：更依赖语义理解
             params['similarity_threshold'] = config.ADAPTIVE_SIMILARITY_THRESHOLD
             params['vector_similarity_weight'] = 0.8
-            params['top_k'] = 25
+            params['top_k'] = 5
 
         elif question_type == 'definition_query':
             # 定义查询：平衡关键词和语义
             params['similarity_threshold'] = 0.08
             params['vector_similarity_weight'] = 0.6
-            params['top_k'] = 12
+            params['top_k'] = 5
 
         elif question_type == 'method_query':
             # 方法查询：需要更多上下文
             params['similarity_threshold'] = 0.06
             params['vector_similarity_weight'] = 0.7
-            params['top_k'] = 18
+            params['top_k'] = 7
 
         logger.info(f"问题类型: {question_type}, 优化参数: 阈值={params['similarity_threshold']}, "
                    f"向量权重={params['vector_similarity_weight']}, TopK={params['top_k']}")
@@ -1030,7 +1030,6 @@ async def qa(request: QARequest):
     context_used = False
 
     # 过滤低质量文档（使用优化后的相似度阈值）
-    # 修复后的代码 - 为阈值比较提供默认值
     quality_documents = []
     if documents:
     # 确定用于比较的阈值，如果为 None，则使用配置文件中的默认值
